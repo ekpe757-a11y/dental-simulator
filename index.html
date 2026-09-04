@@ -1,0 +1,18 @@
+showScreen(name)     // switches screens + manages FAB visibility
+goHome()             // protected exit from quiz
+startCase(caseId)    // launches quiz
+STORAGE_KEY = 'dgr_state_v32'
+
+{
+  streak: number,
+  lastDate: 'YYYY-MM-DD',
+  totalCases: number,
+  bestScores: { [caseId]: number },
+  attemptCounts: { [caseId]: number },
+  history: [ attempt objects ],
+  lastRank: string
+}
+startCase() → renderQuestion() → selectOption() → next/prev → finishCase()
+const CASES = {
+  // ← paste full case objects here in the next prompt
+};
