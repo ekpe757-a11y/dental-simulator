@@ -1,18 +1,149 @@
-showScreen(name)     // switches screens + manages FAB visibility
-goHome()             // protected exit from quiz
-startCase(caseId)    // launches quiz
-STORAGE_KEY = 'dgr_state_v32'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEGD / Dental Board Clinical Simulator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen p-4 md:p-8 font-sans">
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- Header -->
+    <header class="flex flex-col md:flex-row justify-between items-center pb-6 border-b border-slate-800 gap-4">
+      <div>
+        <h1 class="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+          🦷 Dental Grand Rounds Simulator
+        </h1>
+        <p class="text-sm text-slate-400">Board Vignettes & Clinical Decision Support</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <span id="score-badge" class="bg-blue-900/50 border border-blue-500/30 text-blue-300 text-xs px-3 py-1.5 rounded-full font-mono">
+          Score: 0 / 0
+        </span>
+        <button id="next-case-btn" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-all shadow-md">
+          Random Case ➔
+        </button>
+      </div>
+    </header>
 
-{
-  streak: number,
-  lastDate: 'YYYY-MM-DD',
-  totalCases: number,
-  bestScores: { [caseId]: number },
-  attemptCounts: { [caseId]: number },
-  history: [ attempt objects ],
-  lastRank: string
-}
-startCase() → renderQuestion() → selectOption() → next/prev → finishCase()
-const CASES = {
-  // ← paste full case objects here in the next prompt
-};
+    <!-- App Container -->
+    <main id="app-container" class="mt-6 space-y-6">
+      <div id="loading" class="text-center py-20 text-slate-500 animate-pulse font-mono">
+        Loading clinical cases from cases.json...
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    let cases = [];
+    let currentCaseIndex = 0;
+    let score = { correct: 0, total: 0 };
+
+    // Fetch cases.json dynamically
+    async function loadCases() {
+      try {
+        const response = await fetch('cases.json');
+        if (!response.ok) throw new Error('Network response was not ok');
+        cases = await response.json();
+        renderCase(0);
+      } catch (error) {
+        document.getElementById('app-container').innerHTML = `
+          <div class="bg-red-950/40 border border-red-500/50 p-6 rounded-xl text-red-200">
+            <h3 class="font-bold mb-2">Error Loading cases.json</h3>
+            <p class="text-sm">Ensure 'cases.json' exists in the same repository root directory and contains valid JSON.</p>
+          </div>
+        `;
+      }
+    }
+
+    function renderCase(index) {
+      if (!cases || cases.length === 0) return;
+      currentCaseIndex = index;
+      const c = cases[currentCaseIndex];
+
+      const html = `
+        <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 shadow-xl space-y-6">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-mono uppercase tracking-wider px-2.5 py-1 rounded-md bg-emerald-950/60 text-emerald-400 border border-emerald-500/30">
+              ${c.specialty || 'General Dentistry'}
+            </span>
+            <span class="text-xs text-slate-400 font-mono">${c.id || 'CASE'}</span>
+          </div>
+
+          <!-- Clinical Vignette -->
+          <div class="space-y-4">
+            <h2 class="text-lg font-semibold text-white">Clinical Vignette</h2>
+            <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800 space-y-2 text-sm text-slate-300">
+              <p><strong class="text-slate-200">Patient:</strong> ${c.patient?.age} y/o ${c.patient?.gender} | <strong>Med Hx:</strong> ${c.patient?.medical_history}</p>
+              <p><strong class="text-slate-200">Chief Complaint:</strong> "${c.patient?.chief_complaint}"</p>
+              <p><strong class="text-slate-200">Clinical Findings:</strong> ${c.clinical_findings?.probing_depths || ''}; ${c.clinical_findings?.mobility || ''}</p>
+              <p><strong class="text-slate-200">Radiographic Findings:</strong> ${c.clinical_findings?.radiographs || ''}</p>
+            </div>
+          </div>
+
+          <!-- Questions Container -->
+          <div class="space-y-6 pt-2">
+            ${c.questions.map((q, qIdx) => `
+              <div class="space-y-3" id="q-block-${qIdx}">
+                <p class="font-medium text-slate-200 text-sm md:text-base">${qIdx + 1}. ${q.stem}</p>
+                <div class="grid grid-cols-1 gap-2.5">
+                  ${q.options.map((opt, optIdx) => `
+                    <button onclick="handleAnswer(${currentCaseIndex}, ${qIdx}, ${optIdx})" 
+                            id="btn-${qIdx}-${optIdx}" 
+                            class="text-left p-3.5 rounded-xl border border-slate-700/80 bg-slate-900/40 hover:bg-slate-700/50 hover:border-slate-600 transition-all text-sm text-slate-300">
+                      <span class="font-mono text-slate-400 mr-2">${String.fromCharCode(65 + optIdx)}.</span> ${opt}
+                    </button>
+                  `).join('')}
+                </div>
+                <div id="feedback-${qIdx}" class="hidden p-4 rounded-xl text-xs md:text-sm leading-relaxed"></div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      document.getElementById('app-container').innerHTML = html;
+    }
+
+    window.handleAnswer = function(caseIdx, qIdx, selectedIdx) {
+      const q = cases[caseIdx].questions[qIdx];
+      const feedbackEl = document.getElementById(`feedback-${qIdx}`);
+      const isCorrect = selectedIdx === q.correct_index;
+
+      score.total++;
+      if (isCorrect) score.correct++;
+      document.getElementById('score-badge').innerText = `Score: ${score.correct} / ${score.total}`;
+
+      // Disable all buttons in question block
+      q.options.forEach((_, idx) => {
+        const btn = document.getElementById(`btn-${qIdx}-${idx}`);
+        btn.disabled = true;
+        btn.classList.remove('hover:bg-slate-700/50', 'hover:border-slate-600');
+        if (idx === q.correct_index) {
+          btn.classList.add('bg-emerald-950/60', 'border-emerald-500/60', 'text-emerald-200');
+        } else if (idx === selectedIdx && !isCorrect) {
+          btn.classList.add('bg-rose-950/60', 'border-rose-500/60', 'text-rose-200');
+        }
+      });
+
+      feedbackEl.classList.remove('hidden');
+      if (isCorrect) {
+        feedbackEl.className = 'p-4 rounded-xl text-xs md:text-sm bg-emerald-950/40 border border-emerald-500/40 text-emerald-200';
+        feedbackEl.innerHTML = `<strong>✅ Correct:</strong> ${q.rationale}`;
+      } else {
+        feedbackEl.className = 'p-4 rounded-xl text-xs md:text-sm bg-rose-950/40 border border-rose-500/40 text-rose-200';
+        feedbackEl.innerHTML = `<strong>❌ Incorrect:</strong> ${q.rationale}`;
+      }
+    };
+
+    document.getElementById('next-case-btn').addEventListener('click', () => {
+      const nextIndex = Math.floor(Math.random() * cases.length);
+      renderCase(nextIndex);
+    });
+
+    loadCases();
+  </script>
+</body>
+</html>
