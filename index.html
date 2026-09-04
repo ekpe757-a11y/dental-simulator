@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dental Grand Rounds — Daily Board Prep v3.2</title>
+<title>Dental Grand Rounds — Daily Board Prep v3.3</title>
 <style>
   :root {
     --bg: #0b1220;
@@ -322,7 +322,7 @@
       <div class="brand" onclick="goHome()" title="Go Home">
         <div class="brand-icon">🦷</div>
         <span class="brand-text">Grand Rounds</span>
-        <span class="version">v3.2</span>
+        <span class="version">v3.3</span>
       </div>
     </div>
     <div class="stats">
@@ -350,6 +350,7 @@
         Use the floating 📋 button during any quiz to re-open the full clinical vignette.
         Finish a case to grow your streak and unlock detailed right/wrong review with expert feedback.
       </div>
+      <div id="loadStatus" style="display:none;margin-top:14px;padding:14px 16px;background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.3);border-radius:12px;font-size:0.88rem;color:#fda4af;"></div>
     </div>
   </div>
 
@@ -435,48 +436,19 @@
 
 <script>
 /* ══════════════════════════════════════════════════════════════
-   DENTAL GRAND ROUNDS — v3.2  Master Application
+   DENTAL GRAND ROUNDS — v3.3  Master Application
    ──────────────────────────────────────────────────────────────
    Pure client-side single-file app.
    Case data is injected via the CASES object below.
    ══════════════════════════════════════════════════════════════ */
 
-const STORAGE_KEY = 'dgr_state_v32';
+const STORAGE_KEY = 'dgr_state_v33';
+const CASES_URL = 'cases.json';   // same-folder on GitHub Pages / static host
 
-/* ──────────────────────────────────────────────────────────────
-   CASE DATA PLACEHOLDER
-   Paste your full CASES object here (or keep empty until ready).
-   Expected shape per case:
-
-   caseId: {
-     id: 'caseId',
-     title: string,
-     short: string,
-     tags: ['endo','perio','pros','omfs','red'],
-     isToday: boolean,
-     vignette: {
-       demographics: string,
-       chief: string,
-       clinical: string,
-       endo: string,
-       radio: string
-     },
-     flags: [string, ...],
-     questions: [
-       {
-         q: string,
-         options: [string, string, string, string],
-         correct: number,          // 0-based index
-         specialist: 'endo'|'perio'|'pros'|'omfs'|'red',
-         explanation: string
-       },
-       ...
-     ]
-   }
-   ────────────────────────────────────────────────────────────── */
-const CASES = {
-  // ← PASTE FULL CASE OBJECTS HERE
-};
+/* Runtime case bank — populated by fetch */
+let CASES = {};
+let casesLoaded = false;
+let casesError = null;
 
 /* ══════════════════════════════════════════════════════════════
    STATE ENGINE
@@ -566,6 +538,7 @@ function renderLibrary() {
 
   // Summary chips
   const completed = cases.filter(c => state.bestScores[c.id] !== undefined).length;
+  const totalQ = cases.reduce((sum, c) => sum + (c.questions ? c.questions.length : 0), 0);
   const bestSum = cases.reduce((sum, c) => sum + (state.bestScores[c.id] || 0), 0);
   const avgBest = completed ? Math.round((bestSum / cases.reduce((s, c) => s + (state.bestScores[c.id] !== undefined ? c.questions.length : 0), 0)) * 100) : 0;
 
@@ -701,19 +674,11 @@ function openAttemptReview(h) {
 /* ══════════════════════════════════════════════════════════════
    QUIZ ENGINE
    ══════════════════════════════════════════════════════════════ */
-function startTodaysCase() {
-  const todayCase = Object.values(CASES).find(c => c.isToday);
-  if (todayCase) {
-    startCase(todayCase.id);
-  } else {
-    // Fallback: first case or library
-    const first = Object.keys(CASES)[0];
-    if (first) startCase(first);
-    else showScreen('library');
-  }
-}
-
 function startCase(caseId) {
+  if (!casesLoaded) {
+    alert('Case bank is still loading. Please wait a moment.');
+    return;
+  }
   const c = CASES[caseId];
   if (!c) return;
   currentCaseId = caseId;
@@ -921,9 +886,106 @@ function fireConfetti() {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   LOAD CASES FROM cases.json
+   ══════════════════════════════════════════════════════════════ */
+function normalizeCase(raw) {
+  // Ensure every case has the fields the UI expects
+  const v = raw.vignette || {};
+  return {
+    id: raw.id,
+    title: raw.title || raw.id,
+    short: raw.short || '',
+    tags: raw.tags || [],
+    isToday: !!raw.isToday,
+    specialty: raw.specialty || '',
+    difficulty: raw.difficulty || 'Board Level',
+    flags: raw.flags || [],
+    guidelines: raw.guidelines || [],
+    vignette: {
+      demographics: v.demographics || '',
+      chief: v.chief || (raw.patient && raw.patient.chief_complaint) || '',
+      clinical: v.clinical || '',
+      endo: v.endo || '',
+      radio: v.radio || ''
+    },
+    questions: (raw.questions || []).map(q => ({
+      q: q.q || q.stem || '',
+      options: q.options || [],
+      correct: typeof q.correct === 'number' ? q.correct : (q.correct_index ?? 0),
+      specialist: q.specialist || 'red',
+      explanation: q.explanation || q.rationale || ''
+    }))
+  };
+}
+
+async function loadCases() {
+  const statusEl = document.getElementById('loadStatus');
+  try {
+    const res = await fetch(CASES_URL, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' — is cases.json in the same folder as index.html?');
+    const data = await res.json();
+    const list = Array.isArray(data) ? data : Object.values(data);
+
+    CASES = {};
+    list.forEach(raw => {
+      const c = normalizeCase(raw);
+      if (c.id) CASES[c.id] = c;
+    });
+
+    // Ensure exactly one "today" case
+    const todayMarked = Object.values(CASES).filter(c => c.isToday);
+    if (todayMarked.length === 0 && Object.keys(CASES).length) {
+      // rotate by day-of-year so the featured case changes daily
+      const ids = Object.keys(CASES);
+      const day = Math.floor(Date.now() / 86400000);
+      const pick = ids[day % ids.length];
+      CASES[pick].isToday = true;
+    }
+
+    casesLoaded = true;
+    casesError = null;
+    if (statusEl) statusEl.style.display = 'none';
+    updateStatusBar();
+    // refresh home button label
+    const today = Object.values(CASES).find(c => c.isToday);
+    const btn = document.getElementById('btnStartToday');
+    if (btn && today) {
+      btn.querySelector('span').textContent = '▶ Start Today\'s Case';
+    }
+    console.log('[DGR] Loaded', Object.keys(CASES).length, 'cases from', CASES_URL);
+  } catch (err) {
+    casesLoaded = false;
+    casesError = err.message || String(err);
+    console.error('[DGR] Failed to load cases.json', err);
+    if (statusEl) {
+      statusEl.style.display = 'block';
+      statusEl.innerHTML = '<strong>Could not load cases.json</strong><br>' +
+        casesError +
+        '<br><span style="font-size:0.8rem;opacity:0.8">Make sure cases.json is committed next to index.html and you are viewing via GitHub Pages (or any static host), not the raw file:// URL.</span>';
+    }
+  }
+}
+
+function startTodaysCase() {
+  if (!casesLoaded) {
+    alert('Cases are still loading or failed to load. Check the console / load status.');
+    return;
+  }
+  const todayCase = Object.values(CASES).find(c => c.isToday);
+  if (todayCase) {
+    startCase(todayCase.id);
+  } else {
+    const first = Object.keys(CASES)[0];
+    if (first) startCase(first);
+    else showScreen('library');
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
    BOOT
    ══════════════════════════════════════════════════════════════ */
 updateStatusBar();
+loadCases();
 </script>
 </body>
 </html>
