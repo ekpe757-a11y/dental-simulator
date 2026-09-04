@@ -909,6 +909,464 @@
         "specialist": "endo",
         "explanation": "A confirmed vertical root fracture or inability to achieve a restorative ferrule are classic indications to move to extraction. A separated instrument, lesion size, or single prior RCT are not by themselves absolute indications for extraction when modern retreatment or microsurgery remains feasible."
       }
+  }, [
+  {
+    "id": "PROS-101",
+    "specialty": "Prosthodontics & Occlusion",
+    "difficulty": "Board Level",
+    "title": "Severe Attrition with 5 mm VDO Loss — Full-Mouth Rehabilitation Sequencing",
+    "short": "58M • Bruxer • Lost VDO • Worn dentition to pulp",
+    "tags": ["pros", "occlusion"],
+    "isToday": false,
+    "patient": {
+      "age": 58,
+      "gender": "Male",
+      "medical_history": "Hypertension controlled on lisinopril; history of severe nocturnal bruxism; no parafunctional appliances currently used.",
+      "chief_complaint": "My teeth are getting shorter and shorter. I have trouble chewing and my face looks collapsed."
+    },
+    "clinical_findings": {
+      "probing_depths": "Generalized 2–3 mm, no bleeding on probing; excellent hygiene.",
+      "mobility": "Physiologic mobility only.",
+      "radiographs": "Severe occlusal attrition into secondary dentin on all posterior teeth and many anteriors; several near-pulp exposures; no apical pathology; TMJs appear within normal limits on panoramic."
+    },
+    "flags": [
+      "VDO loss ~5 mm",
+      "Compensatory eruption",
+      "Active bruxism",
+      "Minimal remaining enamel",
+      "High esthetic demand"
+    ],
+    "guidelines": [
+      "GPT-9/10 definitions of VDO and centric relation",
+      "Dawson / Spear / Kois full-mouth sequencing principles",
+      "Ferrule effect literature (≥2 mm vertical tooth structure)"
+    ],
+    "vignette": {
+      "demographics": "58-year-old male, ASA II, controlled hypertension. Long-standing untreated bruxism.",
+      "chief": "Progressive shortening of teeth, difficulty chewing, collapsed facial appearance, and concern about future tooth loss.",
+      "clinical": "Severe generalized attrition. Anterior guidance lost. Posterior teeth worn into dentin; several teeth with <1 mm remaining supragingival structure. Freeway space increased. Phonetics altered (sibilant sounds).",
+      "endo": "Cold testing: several posterior teeth respond late or not at all, suggesting possible irreversible pulpitis or necrosis secondary to attrition.",
+      "radio": "Panoramic and periapicals confirm attrition approaching pulp horns; no vertical root fractures identified; bone levels normal."
+    },
+    "questions": [
+      {
+        "q": "What is the most critical first diagnostic and planning step before any irreversible tooth preparation in this full-mouth attrition case?",
+        "options": [
+          "Immediate crown lengthening on all posterior teeth",
+          "Mount diagnostic casts in centric relation, perform a diagnostic wax-up at the proposed new VDO, and confirm the new VDO with a reversible trial (provisional or Kois deprogrammer / occlusal appliance)",
+          "Extract all teeth with <2 mm ferrule and place immediate implants",
+          "Start with anterior crowns only to restore guidance"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Irreversible preparations must be preceded by a reversible verification of the proposed vertical dimension of occlusion and centric relation. Diagnostic wax-up + trial phase (appliance or provisionals) confirms phonetics, esthetics, joint comfort, and muscle adaptation. Jumping directly to crown lengthening or extractions without this step risks creating an unworkable occlusion or unnecessary tooth loss. GPT and classic full-mouth rehabilitation protocols (Dawson, Spear, Kois) all emphasize this reversible testing phase."
+      },
+      {
+        "q": "After confirming a 4–5 mm increase in VDO, many posterior teeth still have <1.5 mm of axial wall height. What is the most evidence-based approach to achieving a reliable ferrule?",
+        "options": [
+          "Accept a 1 mm ferrule and rely on adhesive bonding alone",
+          "Surgical crown lengthening or orthodontic extrusion to obtain ≥2 mm of sound ferrule on strategic teeth, combined with foundation restorations, before final preparations",
+          "Place posts in every tooth to compensate for lack of ferrule",
+          "Reduce all teeth to gingival level and use only resin-bonded restorations"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "A minimum 1.5–2 mm ferrule of sound tooth structure significantly improves fracture resistance of endodontically treated and heavily worn teeth. When insufficient structure remains after VDO opening, crown lengthening or forced eruption is indicated on teeth planned for retention. Posts do not substitute for ferrule; adhesive techniques alone are insufficient under high parafunctional load. This is supported by classic ferrule studies (Sorensen, Libman, etc.) and current prosthodontic texts."
+      },
+      {
+        "q": "Given the history of severe bruxism, which occlusal scheme is most appropriate for the definitive full-arch restorations?",
+        "options": [
+          "Canine-protected occlusion with steep anterior guidance",
+          "Mutually protected occlusion with group function on laterotrusive movements and minimal posterior disclusion in protrusion, plus a robust night guard",
+          "Balanced occlusion as used in complete dentures",
+          "No specific scheme needed if zirconia is used"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "In a patient with a history of destructive bruxism, mutually protected occlusion (or a modified group-function scheme) with shallow guidance and excellent posterior disclusion reduces lateral stresses on individual teeth and restorations. A full-coverage night guard is mandatory for long-term protection. Steep canine guidance can increase forces on canines and risk fracture under heavy parafunction. Balanced occlusion is for removable complete dentures, not fixed reconstructions. Material choice alone does not eliminate the need for a protective occlusal scheme."
+      }
+    ]
+  },
+  {
+    "id": "PROS-102",
+    "specialty": "Prosthodontics & Occlusion",
+    "difficulty": "Board Level",
+    "title": "Mandibular Molar with Insufficient Ferrule — Restorability Decision",
+    "short": "47F • #19 RCT • 0.5–1 mm remaining walls • High smile",
+    "tags": ["pros", "endo"],
+    "isToday": false,
+    "patient": {
+      "age": 47,
+      "gender": "Female",
+      "medical_history": "Non-contributory; non-smoker; excellent systemic health.",
+      "chief_complaint": "My back tooth that had a root canal feels weak and the temporary keeps coming off."
+    },
+    "clinical_findings": {
+      "probing_depths": "3 mm with isolated 5 mm probing on the distal of #19; no mobility.",
+      "mobility": "Physiologic.",
+      "radiographs": "Adequate RCT #19; post space already prepared; remaining axial walls 0.5–1 mm above gingival margin; crown-root ratio approximately 1:1.2 after projected lengthening."
+    },
+    "flags": [
+      "Ferrule <1 mm",
+      "Previous endodontic treatment",
+      "Strategic tooth in posterior occlusion",
+      "Patient desires fixed solution"
+    ],
+    "guidelines": [
+      "Ferrule effect (≥2 mm preferred)",
+      "Biologic width / supracrestal tissue attachment concepts",
+      "Restorability indices for endodontically treated teeth"
+    ],
+    "vignette": {
+      "demographics": "47-year-old healthy female, high esthetic awareness.",
+      "chief": "Repeated debonding of provisional on endodontically treated mandibular first molar; concern about long-term prognosis.",
+      "clinical": "Tooth #19: RCT completed 4 months ago. Remaining tooth structure after caries excavation and old restoration removal is 0.5–1 mm above gingival margin on all axial walls. No cracks visible under magnification. Adjacent teeth intact.",
+      "endo": "RCT appears well-obturated to working length; no residual symptoms; percussion negative.",
+      "radio": "Periapical and bitewing confirm limited remaining structure; no furcation involvement; bone height would allow modest crown lengthening."
+    },
+    "questions": [
+      {
+        "q": "What is the primary biomechanical reason a <1 mm ferrule markedly reduces the prognosis of a crown on an endodontically treated molar?",
+        "options": [
+          "It only affects esthetics",
+          "It significantly decreases resistance to fracture under lateral and oblique occlusal loads, transferring stress to the post/core or root",
+          "It prevents proper shade matching",
+          "It has no effect if a fiber post is used"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "The ferrule effect provides a circumferential band of tooth structure that resists lever forces and protects the root from fracture. When ferrule is absent or minimal, occlusal loads are concentrated on the post or core interface, dramatically increasing catastrophic failure risk. Classic studies (Sorensen & Engelman, Libman & Nicholls) demonstrated this biomechanical principle. Fiber posts improve stress distribution but do not replace the need for ferrule."
+      },
+      {
+        "q": "Which of the following is the most appropriate next step to improve restorability while preserving the tooth if possible?",
+        "options": [
+          "Place a longer post and core and prepare a crown with 0.5 mm ferrule",
+          "Surgical crown lengthening (or orthodontic extrusion) to obtain ≥2 mm of sound axial wall height, followed by definitive core and crown",
+          "Immediate extraction and implant placement without discussion of alternatives",
+          "Bond a direct composite crown as the final restoration"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "When ferrule is deficient but the root and periodontal support are otherwise sound, crown lengthening or forced eruption can create the necessary 2 mm of tooth structure. This must respect biologic width (supracrestal tissue attachment). Simply lengthening the post does not create ferrule and may weaken the root further. Extraction is an option only after the patient understands the relative risks and benefits of retention versus implant replacement."
+      },
+      {
+        "q": "If crown lengthening would create an unfavorable crown-to-root ratio (>1:1) or expose furcation, what is the most defensible recommendation?",
+        "options": [
+          "Proceed with lengthening regardless of ratio",
+          "Discuss extraction, ridge preservation, and implant-supported crown as the more predictable long-term option, while presenting the risks of attempting to retain the tooth",
+          "Use only a resin-bonded onlay with no ferrule",
+          "Place an overdenture abutment and never restore with a crown"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "An unfavorable crown-to-root ratio or furcation exposure after lengthening significantly compromises the long-term prognosis of a single molar under occlusal load. In such situations, transparent discussion of extraction and implant therapy is the evidence-based approach. The clinician must present both options with their respective risk profiles so the patient can make an informed decision. This is core to contemporary prosthodontic treatment planning and informed consent."
+      }
+    ]
+  },
+  {
+    "id": "PROS-103",
+    "specialty": "Prosthodontics & Occlusion",
+    "difficulty": "Board Level",
+    "title": "Edentulous Maxilla — Fixed Full-Arch Implant Rehabilitation Design",
+    "short": "62F • Edentulous maxilla • High smile line • Bone available to first molar",
+    "tags": ["pros", "omfs"],
+    "isToday": false,
+    "patient": {
+      "age": 62,
+      "gender": "Female",
+      "medical_history": "Controlled type 2 diabetes (HbA1c 6.7%); non-smoker; previous unsuccessful maxillary complete denture.",
+      "chief_complaint": "I cannot tolerate a removable denture. I want something fixed that looks natural when I smile."
+    },
+    "clinical_findings": {
+      "probing_depths": "N/A — edentulous.",
+      "mobility": "N/A",
+      "radiographs": "CBCT shows adequate bone height and width from canine to first molar regions bilaterally; limited bone in second molar areas; high smile line reveals 4–5 mm of gingival display."
+    },
+    "flags": [
+      "High smile line / high esthetic demand",
+      "History of denture intolerance",
+      "Diabetes (controlled)",
+      "Desire for fixed solution"
+    ],
+    "guidelines": [
+      "ITI Treatment Guide – edentulous maxilla",
+      "All-on-4 / All-on-6 biomechanical principles",
+      "Pink-and-white esthetic planning for high smile lines"
+    ],
+    "vignette": {
+      "demographics": "62-year-old female, ASA II, controlled diabetes, highly motivated for fixed rehabilitation.",
+      "chief": "Inability to function or feel confident with a removable maxillary prosthesis; requests a fixed, natural-appearing solution.",
+      "clinical": "Completely edentulous maxilla. High lip line at full smile. Adequate interarch space. Mandibular dentition is stable and restored.",
+      "endo": "N/A",
+      "radio": "CBCT demonstrates sufficient bone for implants in the premolar and first molar regions; sinus floors limit posterior length."
+    },
+    "questions": [
+      {
+        "q": "For a fixed full-arch maxillary prosthesis in a patient with a high smile line, what is the most important prosthetic design consideration regarding the transition zone?",
+        "options": [
+          "Always place the transition line 2 mm above the high smile line so pink acrylic or porcelain is never visible",
+          "Accept that pink prosthetic gingiva will be visible and focus only on tooth shade",
+          "Use only white ceramic with no pink component regardless of lip dynamics",
+          "Avoid fixed prostheses entirely when the smile line is high"
+        ],
+        "correct": 0,
+        "specialist": "pros",
+        "explanation": "In high smile line patients, the prosthetic-tissue junction must be concealed or carefully managed. Ideal design places the transition of prosthetic gingiva above the maximum smile line so that only natural-looking pink and white esthetics are visible. When this is impossible, extensive soft-tissue grafting or acceptance of visible pink ceramic/acrylic becomes necessary. ITI and esthetic-zone literature emphasize smile-line analysis as a primary planning determinant."
+      },
+      {
+        "q": "Biomechanically, why is a 6-implant (or more) maxillary fixed solution generally preferred over a strict 4-implant All-on-4 design when bone is available to the first molar?",
+        "options": [
+          "More implants always look better esthetically",
+          "Additional posterior implants reduce cantilever length, lower stress on anterior implants, and improve anteroposterior spread, decreasing prosthetic and implant failure risk",
+          "Four implants are never indicated in the maxilla",
+          "Implant number has no effect on prosthesis survival"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "When anatomy permits, distributing implants more posteriorly shortens cantilevers and improves the anteroposterior spread. This reduces bending moments on the anterior implants and the prosthetic framework. Systematic reviews and ITI consensus statements support higher survival and fewer prosthetic complications with wider A-P distribution and additional implants when bone volume allows. All-on-4 remains a valid option when posterior bone is limited, but it is not the biomechanically superior choice when more sites are available."
+      },
+      {
+        "q": "Given controlled diabetes and a request for immediate loading, what is the most prudent loading protocol?",
+        "options": [
+          "Immediate full occlusal loading on the day of surgery regardless of primary stability",
+          "Immediate provisional loading only if insertion torque and ISQ values meet validated thresholds for each implant; otherwise delayed loading",
+          "Never load until 6 months in any diabetic patient",
+          "Immediate loading is contraindicated solely because of diabetes"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Controlled diabetes (HbA1c <8% in most protocols) is not an absolute contraindication to immediate loading. However, primary stability (insertion torque typically ≥35–40 Ncm and adequate ISQ) remains the critical determinant. When thresholds are not met, delayed loading is safer. This risk-stratified approach is supported by ITI and immediate-loading consensus statements."
+      }
+    ]
+  },
+  {
+    "id": "PROS-104",
+    "specialty": "Prosthodontics & Occlusion",
+    "difficulty": "Board Level",
+    "title": "Kennedy Class II Partially Edentulous Arch with TMD History",
+    "short": "55M • Missing #18–20 • History of myalgia • Requests RPD",
+    "tags": ["pros", "tmd"],
+    "isToday": false,
+    "patient": {
+      "age": 55,
+      "gender": "Male",
+      "medical_history": "History of myofascial pain (now quiescent); controlled GERD; no current medications affecting saliva.",
+      "chief_complaint": "I am missing several back teeth on the lower left and food packs there. I had jaw muscle pain years ago and do not want anything that will flare it up."
+    },
+    "clinical_findings": {
+      "probing_depths": "2–4 mm generalized; no active periodontitis.",
+      "mobility": "No greater than physiologic.",
+      "radiographs": "Kennedy Class II modification 1 mandibular arch; abutment teeth have adequate bone support; condyles appear normal on panoramic."
+    },
+    "flags": [
+      "History of TMD / myalgia",
+      "Distal extension RPD required",
+      "Patient anxiety about recurrence of muscle pain",
+      "Opposing maxillary natural dentition"
+    ],
+    "guidelines": [
+      "McCracken’s RPD design principles",
+      "DC/TMD-informed occlusal goals",
+      "Stress-breaking and broad stress distribution concepts"
+    ],
+    "vignette": {
+      "demographics": "55-year-old male with previous myofascial TMD that resolved with conservative therapy.",
+      "chief": "Desire to replace missing mandibular posterior teeth without risking recurrence of muscle pain.",
+      "clinical": "Missing #18, 19, 20. Remaining teeth periodontally stable. Maximum opening 42 mm without pain. No current joint noise or muscle tenderness.",
+      "endo": "All remaining teeth respond normally to cold; no apical lesions.",
+      "radio": "Adequate abutment bone levels; no osseous TMD findings."
+    },
+    "questions": [
+      {
+        "q": "In a patient with a history of myofascial pain, what is the primary occlusal goal for a mandibular distal-extension RPD?",
+        "options": [
+          "Create steep canine guidance on the prosthesis to disclude all posterior contacts immediately",
+          "Achieve broad, simultaneous centric contacts with minimal lateral interference and avoid introducing large premature contacts or steep guidance that could increase elevator muscle activity",
+          "Establish balanced occlusion with balancing-side contacts on the RPD",
+          "Keep the RPD completely out of occlusion"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Patients with a history of myalgia benefit from an occlusal scheme that does not increase muscle hyperactivity. Broad centric contact and absence of interferences are preferred. Steep guidance or balancing contacts can increase elevator activity and risk flare-up. Keeping the prosthesis out of occlusion defeats the purpose of function and allows supra-eruption of opposing teeth. Classic RPD occlusion literature and TMD-informed prosthodontics support a conservative, non-interfering scheme."
+      },
+      {
+        "q": "Which major connector and clasp design combination best distributes stress while minimizing torque on the terminal abutments in this Kennedy Class II case?",
+        "options": [
+          "Lingual bar with cast circumferential clasps engaging 0.02-inch undercuts on all abutments",
+          "Lingual plate or bar with mesial rests, distal guide planes, and wrought-wire or stress-releasing clasps on the terminal abutments",
+          "Continuous bar with rigid embrasure clasps",
+          "No rests, only frictional retention"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Mesial rests and distal guide planes direct forces down the long axis and allow the distal-extension base to move slightly without torquing the abutment. Stress-releasing clasp assemblies (wrought wire, RPI, etc.) further reduce harmful leverage. Rigid circumferential clasps on terminal abutments increase torque under tissueward movement of the base. These principles are foundational in McCracken and contemporary RPD design."
+      },
+      {
+        "q": "The patient asks whether an implant-retained partial denture or a single implant at #19 would be better for his TMD history. What is the most accurate counseling statement?",
+        "options": [
+          "Any implant will automatically prevent TMD recurrence",
+          "A well-designed RPD is acceptable; an implant-supported or implant-assisted prosthesis can reduce soft-tissue movement and improve stability, which may be advantageous, but TMD history alone does not mandate implants",
+          "Implants are contraindicated because of previous TMD",
+          "Only a complete denture will protect the joints"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Implants can improve support and reduce tissueward movement of a distal-extension base, potentially decreasing force on abutments and improving comfort. However, a properly designed conventional RPD remains a valid option. Previous myofascial pain is not a contraindication to either approach. Treatment choice should be based on residual ridge quality, cost, patient preference, and overall risk–benefit discussion, not on TMD history alone."
+      }
+    ]
+  },
+  {
+    "id": "PROS-105",
+    "specialty": "Prosthodontics & Occlusion",
+    "difficulty": "Board Level",
+    "title": "Missing Maxillary Lateral Incisor — High Smile Line Treatment Options",
+    "short": "24F • Congenitally missing #10 • High smile • Thin biotype",
+    "tags": ["pros", "esthetic"],
+    "isToday": false,
+    "patient": {
+      "age": 24,
+      "gender": "Female",
+      "medical_history": "Healthy; orthodontic treatment completed 18 months ago with space already opened for #10.",
+      "chief_complaint": "I have a space where my lateral incisor never grew in. I want the most natural, long-lasting solution."
+    },
+    "clinical_findings": {
+      "probing_depths": "Healthy 1–3 mm; thin gingival biotype; 1 mm recession risk on #9 and #11.",
+      "mobility": "None.",
+      "radiographs": "CBCT shows narrow ridge at #10 site (3.5 mm width) with slight labial concavity; adequate height; #9 and #11 have good root form and bone support."
+    },
+    "flags": [
+      "High smile line",
+      "Thin periodontal biotype",
+      "Narrow edentulous ridge",
+      "Young adult — long-term perspective required"
+    ],
+    "guidelines": [
+      "ITI esthetic-zone implant planning",
+      "Cantilever resin-bonded bridge evidence",
+      "Ovate pontic and soft-tissue management principles"
+    ],
+    "vignette": {
+      "demographics": "24-year-old healthy female, high esthetic demand, recently completed orthodontics.",
+      "chief": "Replacement of congenitally missing maxillary left lateral incisor with the most predictable pink-and-white result.",
+      "clinical": "Space for #10 ideal (7 mm). High smile line displays entire papilla and 2–3 mm of gingiva. Thin biotype. Adjacent centrals and canines unrestored.",
+      "endo": "Vital and asymptomatic adjacent teeth.",
+      "radio": "CBCT confirms limited ridge width requiring augmentation if an implant is chosen."
+    },
+    "questions": [
+      {
+        "q": "Which treatment option carries the highest long-term risk of soft-tissue recession and papilla loss in this thin-biotype, high-smile-line patient if performed without site development?",
+        "options": [
+          "Cantilever resin-bonded fixed dental prosthesis from the central or canine",
+          "Immediate implant placement without hard- or soft-tissue grafting",
+          "Conventional 3-unit full-coverage FPD",
+          "Removable partial denture"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Immediate implant placement into a narrow, concave ridge with thin biotype has a well-documented risk of mid-facial recession and papilla collapse when buccal bone and soft-tissue volume are inadequate. Site development (contour augmentation + soft-tissue grafting) is usually required for a stable long-term result. A cantilever resin-bonded bridge avoids surgical risk to the soft tissue; a conventional FPD sacrifices healthy adjacent teeth. Current ITI esthetic-zone recommendations emphasize site development when deficiencies exist."
+      },
+      {
+        "q": "If the patient chooses a single-tooth implant, what is the most critical prosthetic and surgical sequencing element for papilla preservation?",
+        "options": [
+          "Place the implant as labially as possible for better emergence",
+          "Develop adequate hard- and soft-tissue volume first, place the implant in a prosthetically driven position (slightly palatal), and use a provisional to sculpt an ovate pontic-like emergence before the final crown",
+          "Load the implant immediately with a full-contour crown",
+          "Use a cement-retained crown with deep subgingival margins"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Papilla and mid-facial tissue stability depend on sufficient buccal bone and soft-tissue thickness plus correct three-dimensional implant position. A prosthetically driven, slightly palatal placement allows a favorable emergence profile. Provisionalization sculpts the soft tissue. Labial placement and immediate full-contour loading increase recession risk in thin biotypes. Deep cement margins raise the risk of residual cement and inflammation."
+      },
+      {
+        "q": "A cantilever resin-bonded bridge (Maryland-type or single-retainer ceramic) is considered. What is the most important prognostic factor for its long-term success?",
+        "options": [
+          "Bonding to the canine rather than the central whenever possible, using a rigid connector, and ensuring the pontic is out of heavy excursive contact",
+          "Always bonding to both adjacent teeth for more retention",
+          "Using base-metal wings with no enamel preparation",
+          "Relying on dentin bonding alone"
+        ],
+        "correct": 0,
+        "specialist": "pros",
+        "explanation": "Evidence (especially from the Zurich group and subsequent studies) shows that single-retainer cantilever ceramic resin-bonded bridges have higher survival than two-retainer designs because differential tooth movement is avoided. Bonding to the canine (when anatomy allows) and keeping the pontic light in excursion further improve prognosis. Rigid connectors and enamel bonding are essential. Two-retainer designs are more prone to debonding of one wing and caries."
+      }
+    ]
+  },
+  {
+    "id": "PROS-106",
+    "specialty": "Prosthodontics & Occlusion",
+    "difficulty": "Board Level",
+    "title": "High-Load Mandibular Molar — Material & Occlusal Design Selection",
+    "short": "51M • #30 crown needed • Heavy function • Limited interocclusal space",
+    "tags": ["pros"],
+    "isToday": false,
+    "patient": {
+      "age": 51,
+      "gender": "Male",
+      "medical_history": "Healthy; history of fractured porcelain on previous PFM crowns; heavy occlusal function and occasional clenching.",
+      "chief_complaint": "My old crown on the lower right molar broke and I need something that will not fracture again."
+    },
+    "clinical_findings": {
+      "probing_depths": "2–3 mm; no inflammation.",
+      "mobility": "None.",
+      "radiographs": "#30 has adequate RCT and remaining tooth structure for a 2 mm ferrule; opposing maxillary molar is a zirconia crown; limited interocclusal clearance (~1.2 mm in centric)."
+    },
+    "flags": [
+      "History of ceramic fracture",
+      "Heavy occlusal load / clenching",
+      "Limited interocclusal space",
+      "Need for high-strength material"
+    ],
+    "guidelines": [
+      "Material strength and fracture-toughness data (zirconia vs lithium disilicate vs PFM)",
+      "Occlusal scheme design for high-load posterior teeth",
+      "Minimum material thickness recommendations"
+    ],
+    "vignette": {
+      "demographics": "51-year-old male with history of porcelain fracture under function.",
+      "chief": "Replacement of fractured mandibular molar crown with a material and design that resists fracture.",
+      "clinical": "Tooth #30 prepared with 2 mm ferrule possible. Limited vertical space. Patient exhibits wear facets and reports clenching during work stress.",
+      "endo": "Previous RCT asymptomatic and radiographically acceptable.",
+      "radio": "Adequate bone support; no root fracture."
+    },
+    "questions": [
+      {
+        "q": "Given limited interocclusal space (~1.2 mm) and high functional load, which material and restoration design is most appropriate?",
+        "options": [
+          "Layered lithium disilicate crown with 0.8 mm occlusal thickness",
+          "Monolithic zirconia crown with minimal occlusal reduction (following manufacturer minimum thickness) and a refined occlusal scheme that avoids heavy interferences",
+          "Feldspathic porcelain jacket crown",
+          "Full-contour resin crown as long-term solution"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Monolithic zirconia offers high flexural strength and fracture toughness even at reduced thicknesses, making it suitable for limited interocclusal space and high load. Layered lithium disilicate or feldspathic porcelain have higher chipping/fracture risk under heavy function, especially when thickness is compromised. Resin is not a long-term high-load posterior solution. Current material selection guidelines support monolithic zirconia in this scenario."
+      },
+      {
+        "q": "What occlusal design feature is most important to protect both the restoration and the opposing zirconia crown?",
+        "options": [
+          "Steep cuspal inclines for maximum efficiency",
+          "Broad centric contacts on flat or gently contoured fossae, with excursive movements directed to minimize lateral stress and eliminate interferences on the restored molar",
+          "Balancing contacts on the molar during laterotrusion",
+          "No contacts in centric relation"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Flattened or gently angled occlusal morphology with well-distributed centric contacts reduces peak stresses. Lateral interferences and steep inclines increase the risk of fracture or opposing wear. Balancing contacts on a single molar are generally undesirable in natural dentition or fixed restorations. Proper occlusal design is as important as material choice for longevity under parafunctional load."
+      },
+      {
+        "q": "The patient asks whether a post and core is required because the tooth had root canal treatment. What is the correct evidence-based response?",
+        "options": [
+          "Every endodontically treated molar requires a post",
+          "A post is indicated only when remaining coronal tooth structure is insufficient to retain the core; with a 2 mm ferrule and adequate walls, a post is unnecessary and may weaken the root",
+          "A post should always be placed to reinforce the tooth against fracture",
+          "Only metal posts are acceptable in molars"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Posts do not strengthen teeth; they retain cores when coronal structure is lacking. When sufficient walls and a 2 mm ferrule remain, a bonded core (or even an amalgam or composite core) without a post is preferred. Unnecessary posts remove additional dentin and can increase root fracture risk. This principle is well established in the endodontic–prosthodontic literature."
+      }
     ]
   }
+]
+
 ]
