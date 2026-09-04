@@ -455,5 +455,462 @@
         "explanation": "Evidence-based risk mitigation for immediate implants in thin-biotype, deficient-plate sites includes: (1) slightly palatal implant positioning to leave a facial gap, (2) grafting that gap with a slowly resorbing material, (3) soft-tissue augmentation to increase thickness, and (4) a provisional that supports the soft-tissue architecture without excessive facial pressure. Facial positioning worsens recession. Leaving the gap empty or over-contouring the provisional increases the likelihood of mid-facial collapse. These principles are repeatedly emphasized in ITI and contemporary esthetic-zone literature."
       }
     ]
+  }, [
+  {
+    "id": "ENDO-101",
+    "specialty": "Endodontics & Dental Trauma",
+    "difficulty": "Board Level",
+    "title": "Complicated Crown Fracture with Pulp Exposure — Mature Apex, 48-Hour Delay",
+    "short": "22F • Healthy • #8 complicated crown fracture, 48 h post-trauma, mature apex",
+    "tags": ["endo", "trauma"],
+    "isToday": false,
+    "patient": {
+      "age": 22,
+      "gender": "Female",
+      "medical_history": "ASA I. No medications. NKDA. Tetanus up to date.",
+      "chief_complaint": "I broke my front tooth two days ago playing soccer. It hurts when I breathe in cold air and when I bite."
+    },
+    "clinical_findings": {
+      "probing_depths": "Physiologic (<3 mm) around #8; no pathologic pockets.",
+      "mobility": "#8 slight mobility (physiologic after trauma); no fremitus.",
+      "radiographs": "PA and CBCT: complete root formation, closed apex, no root fracture, no periapical rarefaction, enamel-dentin-pulp exposure ~2 mm diameter on mesio-incisal."
+    },
+    "flags": [
+      "Complicated crown fracture (enamel-dentin-pulp)",
+      "48-hour treatment delay",
+      "Mature apex (closed)",
+      "Exposed pulp still vital on testing"
+    ],
+    "guidelines": [
+      "IADT 2020 Traumatic Dental Injuries Guidelines",
+      "AAE Position Statement on Vital Pulp Therapy (2021)",
+      "AAE Diagnostic Terminology"
+    ],
+    "vignette": {
+      "demographics": "22-year-old healthy female, ASA I.",
+      "chief": "Complicated crown fracture of #8 sustained 48 hours earlier during sports. Sensitivity to cold air and biting.",
+      "clinical": "Mesio-incisal fracture exposing ~2 mm of pulp. Soft tissue of lips/ gingiva intact. No alveolar fracture. Tooth slightly mobile but within normal limits post-trauma. Cold testing: lingering response on #8; EPT responsive at higher threshold than contralateral.",
+      "endo": "Pulp vital but inflamed. No spontaneous pain. Percussion mild tenderness. No sinus tract.",
+      "radio": "Closed apex, intact PDL, no root fracture on PA or limited-FOV CBCT. No apical radiolucency."
+    },
+    "questions": [
+      {
+        "q": "According to current IADT 2020 and AAE vital-pulp guidelines, what is the most appropriate definitive pulp management for this mature tooth with a 48-hour-old pulp exposure that still responds to vitality testing?",
+        "options": [
+          "Immediate full pulpectomy and root-canal treatment because any exposure older than 24 h in a mature tooth mandates RCT",
+          "Partial pulpotomy (or full pulpotomy) with a hydraulic calcium-silicate cement after careful hemorrhage control, followed by definitive adhesive restoration",
+          "Direct pulp cap with calcium hydroxide only, without removing inflamed superficial pulp tissue",
+          "Extraction and immediate implant because the delay has irreversibly compromised the pulp"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "IADT 2020 and the 2021 AAE Vital Pulp Therapy position statement support vital pulp therapy (partial or full pulpotomy) even in mature teeth when the pulp is still vital and the exposure can be managed under aseptic conditions. Hydraulic calcium-silicate cements (MTA, bioceramics) show high success. A rigid 24-hour cutoff for RCT is outdated. Direct pulp capping alone without removing the superficial inflamed tissue has lower success after delayed presentation. Extraction is not indicated."
+      },
+      {
+        "q": "Which of the following is the strongest predictor of success for vital pulp therapy in this scenario?",
+        "options": [
+          "Patient age under 25 years",
+          "Ability to achieve hemostasis within 5 minutes after partial pulpotomy and placement of a biocompatible barrier",
+          "Use of calcium hydroxide rather than a bioceramic material",
+          "Absence of any percussion sensitivity"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "Hemostasis within a few minutes after removal of the superficial inflamed pulp is the key clinical indicator that the remaining pulp is healthy enough for VPT. Persistent bleeding suggests more extensive inflammation and lower success. Age is less critical than pulp status once the apex is closed. Bioceramics outperform traditional calcium hydroxide. Mild percussion sensitivity is common after trauma and does not preclude VPT."
+      },
+      {
+        "q": "Red-team / risk-management: If the patient later develops signs of pulp necrosis and apical periodontitis, what is the most important pretreatment imaging and planning step before initiating non-surgical root-canal treatment?",
+        "options": [
+          "A single periapical radiograph is sufficient",
+          "Limited-FOV CBCT to rule out undetected root fracture, assess canal morphology, and establish a baseline for healing",
+          "Panoramic radiograph only",
+          "No further imaging is needed because the original CBCT is still valid"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "AAE/AAOMR joint position statements recommend limited-FOV CBCT for traumatic injuries when root fracture or complex anatomy is possible and before retreatment or surgery. It provides critical information that a single PA cannot. Relying solely on the original post-trauma CBCT months later is inadequate for new pathology."
+      }
+    ]
+  },
+  {
+    "id": "ENDO-102",
+    "specialty": "Endodontics & Dental Trauma",
+    "difficulty": "Board Level",
+    "title": "Avulsed Permanent Incisor — 75-Minute Extra-Oral Dry Time",
+    "short": "16M • Healthy • #9 avulsed, dry storage 75 min, closed apex",
+    "tags": ["endo", "trauma", "omfs"],
+    "isToday": false,
+    "patient": {
+      "age": 16,
+      "gender": "Male",
+      "medical_history": "ASA I. No medications. NKDA. Last tetanus booster 4 years ago.",
+      "chief_complaint": "My front tooth got knocked out at practice. I found it on the ground and brought it in a paper towel."
+    },
+    "clinical_findings": {
+      "probing_depths": "Socket intact; no alveolar fracture clinically.",
+      "mobility": "N/A (tooth avulsed).",
+      "radiographs": "Socket of #9 empty, no root fragments, closed apex on the avulsed tooth, no other fractures."
+    },
+    "flags": [
+      "Avulsion of permanent tooth",
+      "Extra-oral dry time 75 minutes",
+      "Closed apex",
+      "Dry storage (paper towel)"
+    ],
+    "guidelines": [
+      "IADT 2020 Guidelines for Avulsion of Permanent Teeth",
+      "AAE Recommended Guidelines for Treatment of Traumatic Dental Injuries"
+    ],
+    "vignette": {
+      "demographics": "16-year-old healthy male.",
+      "chief": "Avulsion of #9 approximately 75 minutes earlier; tooth transported dry in a paper towel.",
+      "clinical": "Empty socket, minimal contamination, no obvious alveolar fracture. Soft-tissue lacerations minor. Tooth has closed apex, periodontal ligament appears desiccated.",
+      "endo": "Tooth is non-vital by definition after avulsion with prolonged dry time.",
+      "radio": "Empty socket, closed apex on avulsed tooth, no root or alveolar fracture visible on PA."
+    },
+    "questions": [
+      {
+        "q": "According to IADT 2020, what is the recommended management sequence for this closed-apex avulsed tooth with >60 minutes extra-oral dry time?",
+        "options": [
+          "Replant immediately after rinsing, flexible splint 2 weeks, initiate RCT within 7–10 days, systemic antibiotics optional",
+          "Do not replant; the PDL is non-viable and ankylosis/replacement resorption is inevitable, so plan for prosthetic replacement",
+          "Replant after soaking in fluoride, rigid splint for 4–6 weeks, delay RCT until symptoms appear",
+          "Replant, start RCT immediately extra-orally before replantation, rigid splint 2 months"
+        ],
+        "correct": 0,
+        "specialist": "endo",
+        "explanation": "IADT 2020 still recommends replantation even after >60 min dry time for closed-apex teeth (to preserve alveolar bone and soft-tissue contour, even if ankylosis is likely). Clean the root and socket, replant, flexible splint for 2 weeks, and commence endodontic treatment within 7–10 days (pulp will necrose). Extra-oral RCT before replantation is no longer preferred. Rigid long-term splinting increases ankylosis risk. While ankylosis is expected, immediate prosthetic replacement discards the chance to maintain the ridge."
+      },
+      {
+        "q": "Which systemic medication consideration is most appropriate per current IADT guidance?",
+        "options": [
+          "No systemic antibiotics are ever indicated for avulsion",
+          "Systemic antibiotics (e.g., doxycycline or penicillin) may be considered; tetanus status must be verified and updated if needed",
+          "High-dose corticosteroids for 2 weeks to prevent resorption",
+          "Antifungal therapy because dry storage guarantees fungal contamination"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "IADT 2020 states that systemic antibiotics may be given at the physician’s/dentist’s discretion (evidence is mixed but still commonly used). Tetanus immunization status must always be checked after avulsion. Long-term corticosteroids are not indicated. Antifungals are not part of the protocol."
+      },
+      {
+        "q": "Long-term red-team risk: What is the most likely unfavorable sequela and the appropriate monitoring strategy?",
+        "options": [
+          "Internal resorption only; monitor with annual PA radiographs",
+          "Replacement resorption (ankylosis) and eventual infra-occlusion; clinical percussion + radiographic follow-up at 1, 3, 6, 12 months then annually; plan for decoronation or prosthetic replacement when indicated",
+          "No long-term sequelae expected if RCT is done promptly",
+          "External invasive cervical resorption only; no monitoring needed after the first year"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "Prolonged dry time destroys PDL viability → replacement resorption/ankylosis is expected. In a growing patient this leads to infra-occlusion. IADT recommends structured clinical and radiographic follow-up. Decoronation is a recognized option to preserve bone once infra-occlusion becomes significant. Prompt RCT prevents infection-related (inflammatory) resorption but cannot prevent replacement resorption."
+      }
+    ]
+  },
+  {
+    "id": "ENDO-103",
+    "specialty": "Endodontics & Dental Trauma",
+    "difficulty": "Board Level",
+    "title": "External Inflammatory Root Resorption after Luxation Injury",
+    "short": "19M • #9 prior subluxation • progressive external resorption + pulp necrosis",
+    "tags": ["endo", "trauma"],
+    "isToday": false,
+    "patient": {
+      "age": 19,
+      "gender": "Male",
+      "medical_history": "ASA I. History of subluxation of #9 eight months ago; no endodontic treatment performed at that time.",
+      "chief_complaint": "My front tooth has turned gray and the gum above it feels tender. I thought it was fine after the accident."
+    },
+    "clinical_findings": {
+      "probing_depths": "Normal probing; no periodontal pockets.",
+      "mobility": "Grade I mobility #9.",
+      "radiographs": "PA and CBCT: mid-root external radiolucent defect on the facial aspect of #9, associated with pulp canal space; small apical radiolucency; no root fracture."
+    },
+    "flags": [
+      "History of luxation/subluxation",
+      "Pulp necrosis (discoloration + negative sensibility)",
+      "External inflammatory root resorption",
+      "Delayed presentation (8 months)"
+    ],
+    "guidelines": [
+      "IADT 2020",
+      "AAE Diagnostic Terminology & Resorption Classification",
+      "AAE/AAOMR CBCT Position Statement"
+    ],
+    "vignette": {
+      "demographics": "19-year-old healthy male.",
+      "chief": "Gray discoloration and mild tenderness of #9 eight months after a subluxation injury that was never endodontically treated.",
+      "clinical": "Gray crown #9. Negative cold and EPT. Mild percussion tenderness. No sinus tract. Soft tissues otherwise normal.",
+      "endo": "Pulp necrosis with symptomatic apical periodontitis and concurrent external inflammatory resorption.",
+      "radio": "CBCT confirms external mid-root radiolucent defect communicating with the canal space and a small apical lesion. Remaining dentin thickness is adequate for retention if infection is controlled."
+    },
+    "questions": [
+      {
+        "q": "The mid-root external resorptive defect in the presence of pulp necrosis is best classified as:",
+        "options": [
+          "Internal replacement resorption",
+          "External inflammatory resorption",
+          "External cervical (invasive) resorption",
+          "Surface resorption only (self-limiting)"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "External inflammatory resorption is driven by pulpal infection and typically appears on the root surface adjacent to necrotic pulp tissue. It is progressive until the stimulus (infection) is removed. Internal replacement resorption occurs inside the canal. External cervical resorption is a different entity (usually coronal third, often with vital pulp or different etiology). Surface resorption is shallow and self-limiting."
+      },
+      {
+        "q": "What is the most appropriate immediate endodontic sequence?",
+        "options": [
+          "Observation only; resorption will arrest spontaneously",
+          "Thorough chemomechanical debridement, intracanal medicament (calcium hydroxide), then definitive obturation once symptoms resolve; consider internal bleaching after obturation",
+          "Immediate extraction because resorption has already doomed the tooth",
+          "Regenerative endodontic procedure as first-line therapy in a mature tooth"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "Removal of the pulpal infection is the essential first step to arrest external inflammatory resorption. Calcium hydroxide is classically used because of its antibacterial and anti-resorptive properties. Once the canal is disinfected and symptoms resolve, obturation is completed. Internal bleaching can follow. Extraction is not required when sufficient root structure remains. REP is indicated primarily for immature teeth."
+      },
+      {
+        "q": "Which imaging and documentation step is most critical for both treatment planning and long-term follow-up?",
+        "options": [
+          "Periapical radiographs only at yearly intervals",
+          "Limited-FOV CBCT at baseline to map the three-dimensional extent of resorption and remaining dentin, then periodic clinical + radiographic review",
+          "Panoramic radiograph is sufficient",
+          "No further imaging once RCT is completed"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "CBCT is the standard of care for mapping resorptive defects, quantifying remaining root structure, and detecting early recurrence. AAE/AAOMR guidance supports its use in trauma-related resorption. Two-dimensional PAs alone underestimate the defect."
+      }
+    ]
+  },
+  {
+    "id": "ENDO-104",
+    "specialty": "Endodontics & Dental Trauma",
+    "difficulty": "Board Level",
+    "title": "Cracked Tooth with Pulp Involvement — Restorability Decision",
+    "short": "48F • #30 cracked tooth • lingering cold + bite pain • questionable ferrule",
+    "tags": ["endo", "pros"],
+    "isToday": false,
+    "patient": {
+      "age": 48,
+      "gender": "Female",
+      "medical_history": "ASA II (controlled hypertension). No allergies.",
+      "chief_complaint": "My lower right molar hurts when I bite on hard food and the cold sensitivity lingers for almost a minute."
+    },
+    "clinical_findings": {
+      "probing_depths": "4 mm isolated probing on the facial of #30; otherwise ≤3 mm.",
+      "mobility": "No abnormal mobility.",
+      "radiographs": "PA: large MOD restoration, subtle vertical radiolucent line suggestion on mesial root; no clear periapical lesion yet. Bitewing confirms deep restoration margins."
+    },
+    "flags": [
+      "Cracked tooth syndrome",
+      "Lingering thermal response (irreversible pulpitis)",
+      "Isolated deep probing (possible fracture extension)",
+      "Restorability / ferrule concern"
+    ],
+    "guidelines": [
+      "AAE Cracked Tooth & Vertical Root Fracture resources",
+      "AAE Diagnostic Terminology",
+      "Prosthodontic ferrule principles"
+    ],
+    "vignette": {
+      "demographics": "48-year-old female with controlled hypertension.",
+      "chief": "Bite pain and lingering cold sensitivity on #30.",
+      "clinical": "Large MOD amalgam. Pain on release with Tooth Slooth on the mesial cusp. Lingering cold response. Isolated 4 mm facial probing depth. No sinus tract.",
+      "endo": "Symptomatic irreversible pulpitis with symptomatic apical periodontitis (early). Crack visible under magnification after removal of restoration, extending into the pulp chamber floor but not clearly onto the external root surface.",
+      "radio": "No definitive vertical root fracture on PA; CBCT may be considered if surgical exploration is planned."
+    },
+    "questions": [
+      {
+        "q": "After confirming the crack extends into the pulp chamber, what is the most appropriate next clinical step before committing to root-canal treatment?",
+        "options": [
+          "Immediate RCT and full-coverage crown without further evaluation of the crack extent",
+          "Complete removal of the existing restoration, visualization under magnification/illumination, staining, and transillumination to map the apical and proximal extent of the crack; then decide on restorability",
+          "Extraction is mandatory once a crack reaches the pulp",
+          "Pulp capping and a new direct restoration because the pulp is only reversibly inflamed"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "AAE guidance emphasizes thorough evaluation of crack extent under magnification before treatment decisions. An isolated deep probing or crack that extends apical to the CEJ or onto the root surface markedly worsens prognosis. Jumping straight to RCT without mapping the crack risks treating a non-restorable tooth. Lingering thermal pain indicates irreversible pulpitis, so pulp capping is inappropriate."
+      },
+      {
+        "q": "If the crack is confined to the crown and coronal one-third of the root and a 2 mm ferrule can still be achieved, what is the evidence-based restorative endpoint after RCT?",
+        "options": [
+          "Direct composite only",
+          "Full-coverage crown (preferably bonded ceramic or cast restoration) as soon as practical after obturation to cuspal protection",
+          "No restoration is needed beyond the access filling",
+          "Post and core is always required"
+        ],
+        "correct": 1,
+        "specialist": "pros",
+        "explanation": "Cuspal coverage is essential for cracked teeth after endodontic treatment to prevent crack propagation. A ferrule of ≥2 mm improves fracture resistance. Posts are used only when retention for the core is insufficient; they are not automatic. Direct composites alone leave the tooth vulnerable to further cracking."
+      },
+      {
+        "q": "Which finding would most strongly shift the plan toward extraction rather than RCT + crown?",
+        "options": [
+          "Mild percussion sensitivity",
+          "Isolated probing depth ≥5–6 mm associated with the crack line and radiographic suggestion of the fracture extending onto the root surface",
+          "Patient age over 45",
+          "Presence of a large existing restoration"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "Deep isolated probing and radiographic or clinical evidence that the crack has progressed onto the root surface (vertical root fracture pattern) carry a poor prognosis for tooth retention. Age and restoration size alone are not decisive."
+      }
+    ]
+  },
+  {
+    "id": "ENDO-105",
+    "specialty": "Endodontics & Dental Trauma",
+    "difficulty": "Board Level",
+    "title": "Immature Permanent Incisor with Necrotic Pulp & Apical Periodontitis — REP vs Apexification",
+    "short": "9F • #8 dens invaginatus • open apex • large apical lesion",
+    "tags": ["endo", "pediatric"],
+    "isToday": false,
+    "patient": {
+      "age": 9,
+      "gender": "Female",
+      "medical_history": "ASA I. No medications.",
+      "chief_complaint": "My daughter’s front tooth is discolored and the gum has a pimple that comes and goes."
+    },
+    "clinical_findings": {
+      "probing_depths": "Normal; sinus tract on the facial mucosa opposite #8.",
+      "mobility": "Grade I.",
+      "radiographs": "PA/CBCT: incomplete root formation, wide-open apex, large periapical radiolucency, dens invaginatus (Oehlers type II) on #8."
+    },
+    "flags": [
+      "Immature permanent tooth (open apex)",
+      "Pulp necrosis + chronic apical abscess",
+      "Dens invaginatus complicating anatomy",
+      "Growing patient"
+    ],
+    "guidelines": [
+      "AAE Clinical Considerations for Regenerative Endodontic Procedures (current)",
+      "IADT / AAE trauma and immature-tooth guidance",
+      "European Society of Endodontology position on REP"
+    ],
+    "vignette": {
+      "demographics": "9-year-old healthy female.",
+      "chief": "Discoloration of #8 and intermittent sinus tract.",
+      "clinical": "Grayish crown #8. Negative sensibility tests. Facial sinus tract traces to the apex of #8. No caries; dens invaginatus evident clinically and radiographically.",
+      "endo": "Necrotic pulp with chronic apical abscess. Open apex (>1–2 mm). Canal walls thin.",
+      "radio": "Wide-open apex, thin dentinal walls, large apical radiolucency, invagination extending into the canal."
+    },
+    "questions": [
+      {
+        "q": "In this immature tooth with a necrotic pulp and apical periodontitis, which statement best reflects current AAE guidance on regenerative endodontic procedures (REP)?",
+        "options": [
+          "REP is contraindicated once a sinus tract is present",
+          "REP is a viable first-line option when the goal is continued root development and thickening of canal walls; thorough disinfection and a biocompatible scaffold/seal are required",
+          "Apexification with long-term calcium hydroxide is always superior to REP",
+          "Immediate extraction and space maintenance is preferred in a 9-year-old"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "AAE REP considerations support regenerative approaches for immature teeth with pulp necrosis to allow further root development. Presence of a sinus tract does not contraindicate REP once infection is controlled. Long-term Ca(OH)₂ apexification can weaken roots. Extraction is a last resort in a growing child when the tooth can be retained."
+      },
+      {
+        "q": "What is the most critical disinfection step that differentiates successful REP from traditional apexification?",
+        "options": [
+          "Use of 6 % NaOCl only, without any medicament",
+          "Minimal mechanical instrumentation, copious irrigation with NaOCl (lower concentration often preferred), followed by an intracanal medicament (commonly calcium hydroxide or a low-concentration antibiotic paste), then induction of a blood clot or use of a scaffold and a coronal bioceramic seal",
+          "Heavy rotary instrumentation to the apex to remove all bacteria",
+          "Systemic antibiotics alone without local canal disinfection"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "REP protocols emphasize chemical disinfection while preserving remaining stem-cell niches. Heavy mechanical instrumentation is avoided. Calcium hydroxide or dilute antibiotic pastes are used as medicaments. A blood-clot scaffold or alternative scaffold plus a tight coronal seal is required. Systemic antibiotics alone are insufficient."
+      },
+      {
+        "q": "If REP is chosen and the dens invaginatus is present, what additional technical consideration is essential?",
+        "options": [
+          "Ignore the invagination; it will not affect disinfection",
+          "Map and disinfect the invagination (often requiring magnification and possible CBCT-guided access) because it can harbor residual biofilm and cause persistent infection",
+          "Always extract because dens invaginatus makes REP impossible",
+          "Fill the invagination with amalgam before starting REP"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "Dens invaginatus creates an additional niche for bacteria. Failure to locate, instrument, and disinfect it is a common cause of REP or conventional treatment failure. Magnification and CBCT are valuable. Extraction is not automatic; many such teeth can be managed endodontically."
+      }
+    ]
+  },
+  {
+    "id": "ENDO-106",
+    "specialty": "Endodontics & Dental Trauma",
+    "difficulty": "Board Level",
+    "title": "Persistent Apical Periodontitis after Prior RCT — Retreatment vs Apical Surgery",
+    "short": "41M • #19 prior RCT • persistent lesion • separated instrument in MB canal",
+    "tags": ["endo", "omfs"],
+    "isToday": false,
+    "patient": {
+      "age": 41,
+      "gender": "Male",
+      "medical_history": "ASA II (well-controlled type 2 diabetes, HbA1c 6.7 %). No allergies.",
+      "chief_complaint": "I had a root canal on my lower molar two years ago. It still feels pressure when I chew and the X-ray still shows a dark spot."
+    },
+    "clinical_findings": {
+      "probing_depths": "All ≤3 mm; no isolated deep pockets.",
+      "mobility": "Physiologic.",
+      "radiographs": "PA/CBCT: prior RCT #19, separated rotary file in the middle third of the mesial root, 5 mm apical radiolucency involving both mesial and distal roots, no root fracture."
+    },
+    "flags": [
+      "Post-treatment apical periodontitis",
+      "Separated instrument",
+      "Large persistent lesion",
+      "Strategic molar"
+    ],
+    "guidelines": [
+      "AAE Treatment Options for the Compromised Tooth",
+      "AAE/AAOMR CBCT guidance for endodontic surgery",
+      "Current evidence on non-surgical retreatment vs endodontic microsurgery"
+    ],
+    "vignette": {
+      "demographics": "41-year-old male with well-controlled diabetes.",
+      "chief": "Persistent biting pressure and radiographic lesion two years after RCT on #19.",
+      "clinical": "Tooth restored with a well-fitting crown. Mild percussion tenderness. No sinus tract. No deep probing.",
+      "endo": "Previously treated tooth with symptomatic apical periodontitis. Separated instrument visible in mesial root.",
+      "radio": "CBCT confirms the separated file location, size of the osteolytic lesion, and absence of root fracture or significant bone loss that would preclude surgery."
+    },
+    "questions": [
+      {
+        "q": "What is the most appropriate first-line approach according to current evidence when both non-surgical retreatment and apical microsurgery are technically feasible?",
+        "options": [
+          "Immediate extraction and implant because any separated instrument dooms the tooth",
+          "Non-surgical orthograde retreatment (attempting instrument bypass or removal) when access through the crown is possible and the canal system can be re-disinfected; microsurgery reserved for cases in which retreatment is not feasible or fails",
+          "Apical surgery first in every case with a separated instrument",
+          "Long-term observation only; many lesions heal spontaneously after two years"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "Evidence and AAE guidance favor non-surgical retreatment as the first option when the canal system is accessible and the goal is to improve disinfection. Separated instruments can often be bypassed or removed with modern techniques. Microsurgery is highly successful but is generally considered after, or when, orthograde revision is not practical. Observation of a symptomatic lesion with a known instrument is not appropriate."
+      },
+      {
+        "q": "If non-surgical retreatment is unsuccessful or the separated file cannot be safely managed orthograde, which statement about modern endodontic microsurgery is correct?",
+        "options": [
+          "Traditional rotary surgery without magnification has the same success rate as microsurgery",
+          "Endodontic microsurgery (magnification, ultrasonic root-end preparation, biocompatible root-end fillings) achieves high success rates (often >90 % in selected cases) and is a predictable alternative to extraction",
+          "Microsurgery is contraindicated in patients with controlled diabetes",
+          "Root-end resection of 1 mm is sufficient regardless of anatomy"
+        ],
+        "correct": 1,
+        "specialist": "endo",
+        "explanation": "Contemporary microsurgical techniques have markedly improved outcomes compared with traditional surgery. Controlled diabetes is not a contraindication. Root-end resection of approximately 3 mm is generally recommended to remove most lateral canals and apical ramifications; 1 mm is usually insufficient."
+      },
+      {
+        "q": "Red-team decision point: Which factor would most strongly favor extraction and implant rather than further endodontic efforts?",
+        "options": [
+          "Patient preference for a long-term, low-maintenance solution combined with radiographic evidence of a vertical root fracture or insufficient remaining tooth structure for a reliable ferrule",
+          "Presence of a separated instrument alone",
+          "Lesion size >4 mm",
+          "History of one prior RCT"
+        ],
+        "correct": 0,
+        "specialist": "endo",
+        "explanation": "A confirmed vertical root fracture or inability to achieve a restorative ferrule are classic indications to move to extraction. A separated instrument, lesion size, or single prior RCT are not by themselves absolute indications for extraction when modern retreatment or microsurgery remains feasible."
+      }
+    ]
   }
+]
+
 ]
