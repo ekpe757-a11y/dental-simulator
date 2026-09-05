@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
   <!-- iOS Native Web App & Home Screen Meta Tags -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="DentalSim">
-<meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DentalSim">
+  <meta name="theme-color" content="#0b1220">
 
-<!-- Built-in Dental Tooth App Icon for iOS -->
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%2338bdf8'><rect width='100' height='100' rx='22' fill='%230f172a'/><text y='70' x='18' font-size='65'>🦷</text></svg>">
+  <!-- Built-in Dental Tooth App Icon for iOS -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%2338bdf8'><rect width='100' height='100' rx='22' fill='%230f172a'/><text y='70' x='18' font-size='65'>🦷</text></svg>">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dental Grand Rounds — Daily Board Prep v3.3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Dental Grand Rounds — Daily Board Prep v3.3</title>
+
   <style>
     /* iOS Touch & Safe Area Notch Handling */
     html {
@@ -21,9 +22,13 @@
     }
     * {
       -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     button {
       touch-action: manipulation;
+      cursor: pointer;
     }
     body {
       min-height: 100%;
@@ -31,326 +36,323 @@
       margin: 0;
       display: flex;
       flex-direction: column;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      overflow-x: hidden;
       padding-top: max(1rem, env(safe-area-inset-top));
       padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
       padding-left: max(1rem, env(safe-area-inset-left));
       padding-right: max(1rem, env(safe-area-inset-right));
     }
-    #app-container, main {
+    #app-container, main, .app {
       flex: 1 0 auto;
     }
 
-  :root {
-    --bg: #0b1220;
-    --surface: #141e2e;
-    --surface-2: #1e2d42;
-    --surface-3: #283848;
-    --primary: #0ea5e9;
-    --primary-glow: #38bdf8;
-    --accent: #10b981;
-    --accent-glow: #34d399;
-    --danger: #f43f5e;
-    --warning: #f59e0b;
-    --purple: #8b5cf6;
-    --pink: #ec4899;
-    --text: #f1f5f9;
-    --text-dim: #94a3b8;
-    --text-muted: #64748b;
-    --border: rgba(148,163,184,0.12);
-    --glass: rgba(20,30,46,0.78);
-    --shadow: 0 8px 32px rgba(0,0,0,0.45);
-    --radius: 16px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    line-height: 1.5;
-    overflow-x: hidden;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(14,165,233,0.13), transparent),
-      radial-gradient(ellipse 60% 40% at 90% 10%, rgba(16,185,129,0.09), transparent),
-      radial-gradient(ellipse 50% 30% at 50% 100%, rgba(139,92,246,0.07), transparent);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .app { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 20px 16px 100px; }
+    :root {
+      --bg: #0b1220;
+      --surface: #141e2e;
+      --surface-2: #1e2d42;
+      --surface-3: #283848;
+      --primary: #0ea5e9;
+      --primary-glow: #38bdf8;
+      --accent: #10b981;
+      --accent-glow: #34d399;
+      --danger: #f43f5e;
+      --warning: #f59e0b;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --text: #f1f5f9;
+      --text-dim: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(148,163,184,0.12);
+      --glass: rgba(20,30,46,0.78);
+      --shadow: 0 8px 32px rgba(0,0,0,0.45);
+      --radius: 16px;
+    }
 
-  /* ── Status Bar ── */
-  .status-bar {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    background: var(--glass); backdrop-filter: blur(16px);
-    border: 1px solid var(--border); border-radius: 20px;
-    padding: 10px 16px; margin-bottom: 24px; box-shadow: var(--shadow);
-    position: sticky; top: 12px; z-index: 50;
-  }
-  .status-left { display: flex; align-items: center; gap: 8px; }
-  .home-btn {
-    width: 36px; height: 36px; border-radius: 10px;
-    background: var(--surface-2); border: 1px solid var(--border);
-    color: var(--text); font-size: 1.15rem; cursor: pointer;
-    display: grid; place-items: center; transition: all 0.2s;
-    flex-shrink: 0;
-  }
-  .home-btn:hover { background: rgba(14,165,233,0.15); border-color: var(--primary); color: var(--primary-glow); }
-  .brand {
-    display: flex; align-items: center; gap: 8px;
-    font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em;
-    cursor: pointer; user-select: none;
-  }
-  .brand:hover .brand-text { color: var(--primary-glow); }
-  .brand-icon {
-    width: 30px; height: 30px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    border-radius: 9px; display: grid; place-items: center; font-size: 1rem;
-  }
-  .brand-text { transition: color 0.15s; }
-  .version {
-    font-size: 0.62rem; font-weight: 600; color: var(--primary-glow);
-    background: rgba(14,165,233,0.15); padding: 2px 6px; border-radius: 5px;
-  }
-  .stats { display: flex; gap: 7px; flex-wrap: wrap; }
-  .stat-chip {
-    display: flex; align-items: center; gap: 4px;
-    background: var(--surface-2); border: 1px solid var(--border);
-    border-radius: 999px; padding: 4px 10px; font-size: 0.78rem; font-weight: 600;
-  }
-  .stat-chip.streak { color: #fb923c; }
-  .stat-chip.cases { color: var(--primary-glow); }
-  .stat-chip.rank { color: var(--accent-glow); }
+    html { scroll-behavior: smooth; }
 
-  /* ── Screens ── */
-  .screen { display: none; animation: fadeUp 0.35s ease; }
-  .screen.active { display: block; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(14,165,233,0.13), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(16,185,129,0.09), transparent),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(139,92,246,0.07), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-  /* ── Hero ── */
-  .hero {
-    background: linear-gradient(145deg, var(--surface), var(--surface-2));
-    border: 1px solid var(--border); border-radius: 24px;
-    padding: 32px 28px; margin-bottom: 22px; position: relative; overflow: hidden;
-  }
-  .hero::after {
-    content: ''; position: absolute; top: -40%; right: -20%; width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(14,165,233,0.18), transparent 70%);
-    pointer-events: none;
-  }
-  .hero h1 { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
-  .hero p { color: var(--text-dim); font-size: 0.95rem; max-width: 520px; margin-bottom: 22px; }
-  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 20px; border-radius: 12px; font-weight: 650; font-size: 0.92rem;
-    border: none; cursor: pointer; transition: all 0.2s; position: relative;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--primary), #0284c7);
-    color: white; box-shadow: 0 4px 20px rgba(14,165,233,0.35);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(14,165,233,0.45); }
-  .btn-secondary {
-    background: var(--surface-3); color: var(--text); border: 1px solid var(--border);
-  }
-  .btn-secondary:hover { background: var(--surface-2); border-color: var(--primary); }
-  .new-badge {
-    position: absolute; top: -8px; right: -8px;
-    background: var(--accent); color: #064e3b; font-size: 0.65rem; font-weight: 800;
-    padding: 3px 8px; border-radius: 999px; letter-spacing: 0.04em;
-  }
-  .tip {
-    margin-top: 18px; padding: 14px 16px; background: rgba(14,165,233,0.08);
-    border: 1px solid rgba(14,165,233,0.2); border-radius: 12px;
-    font-size: 0.85rem; color: var(--text-dim);
-  }
+    .app { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 20px 16px 100px; width: 100%; }
 
-  /* ── Section / Cards ── */
-  .section-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-  .summary-chip {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-    padding: 10px 14px; font-size: 0.82rem; font-weight: 600;
-  }
-  .summary-chip span { color: var(--text-muted); font-weight: 500; margin-right: 4px; }
-  .case-grid { display: grid; gap: 12px; }
-  .case-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-    padding: 18px; cursor: pointer; transition: all 0.2s;
-  }
-  .case-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow); }
-  .case-card.today { border-color: rgba(16,185,129,0.5); background: linear-gradient(145deg, rgba(16,185,129,0.08), var(--surface)); }
-  .case-card-header { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-  .case-id { font-size: 0.7rem; font-weight: 700; color: var(--primary-glow); letter-spacing: 0.06em; margin-bottom: 4px; }
-  .case-title { font-weight: 700; font-size: 1.02rem; margin-bottom: 2px; }
-  .case-meta { font-size: 0.82rem; color: var(--text-muted); }
-  .score-pill {
-    flex-shrink: 0; height: fit-content; padding: 4px 10px; border-radius: 999px;
-    font-size: 0.78rem; font-weight: 700;
-  }
-  .score-pill.high { background: rgba(16,185,129,0.15); color: #6ee7b7; }
-  .score-pill.mid { background: rgba(245,158,11,0.15); color: #fcd34d; }
-  .score-pill.low { background: rgba(244,63,94,0.15); color: #fda4af; }
-  .score-pill.new { background: rgba(14,165,233,0.15); color: #7dd3fc; }
-  .case-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
-    padding: 3px 8px; border-radius: 6px;
-  }
-  .tag.endo { background: rgba(14,165,233,0.15); color: #7dd3fc; }
-  .tag.perio { background: rgba(16,185,129,0.15); color: #6ee7b7; }
-  .tag.pros { background: rgba(139,92,246,0.15); color: #c4b5fd; }
-  .tag.omfs { background: rgba(244,63,94,0.15); color: #fda4af; }
-  .tag.red { background: rgba(236,72,153,0.15); color: #f9a8d4; }
+    /* Status Bar */
+    .status-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: var(--glass); backdrop-filter: blur(16px);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 10px 16px; margin-bottom: 24px; box-shadow: var(--shadow);
+      position: sticky; top: 12px; z-index: 50;
+    }
+    .status-left { display: flex; align-items: center; gap: 8px; }
+    .home-btn {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--text); font-size: 1.15rem; cursor: pointer;
+      display: grid; place-items: center; transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .home-btn:hover { background: rgba(14,165,233,0.15); border-color: var(--primary); color: var(--primary-glow); }
+    .brand {
+      display: flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em;
+      cursor: pointer; user-select: none;
+    }
+    .brand:hover .brand-text { color: var(--primary-glow); }
+    .brand-icon {
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 9px; display: grid; place-items: center; font-size: 1rem;
+    }
+    .brand-text { transition: color 0.15s; }
+    .version {
+      font-size: 0.62rem; font-weight: 600; color: var(--primary-glow);
+      background: rgba(14,165,233,0.15); padding: 2px 6px; border-radius: 5px;
+    }
+    .stats { display: flex; gap: 7px; flex-wrap: wrap; }
+    .stat-chip {
+      display: flex; align-items: center; gap: 4px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 999px; padding: 4px 10px; font-size: 0.78rem; font-weight: 600;
+    }
+    .stat-chip.streak { color: #fb923c; }
+    .stat-chip.cases { color: var(--primary-glow); }
+    .stat-chip.rank { color: var(--accent-glow); }
 
-  /* ── Quiz ── */
-  .progress-wrap { margin-bottom: 18px; }
-  .progress-meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
-  .progress-bar { height: 6px; background: var(--surface-3); border-radius: 99px; overflow: hidden; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 99px; transition: width 0.35s ease; }
-  .question-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
-    padding: 24px; margin-bottom: 16px;
-  }
-  .q-num { font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; margin-bottom: 10px; }
-  .q-text { font-size: 1.08rem; font-weight: 650; margin-bottom: 18px; line-height: 1.45; }
-  .options { display: grid; gap: 10px; }
-  .option {
-    background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px;
-    padding: 14px 16px; cursor: pointer; transition: all 0.15s; font-size: 0.92rem;
-  }
-  .option:hover:not(.disabled) { border-color: var(--primary); background: rgba(14,165,233,0.08); }
-  .option.selected { border-color: var(--primary); background: rgba(14,165,233,0.12); }
-  .option.correct { border-color: var(--accent); background: rgba(16,185,129,0.12); }
-  .option.wrong { border-color: var(--danger); background: rgba(244,63,94,0.1); }
-  .option.disabled { cursor: default; opacity: 0.85; }
-  .feedback {
-    margin-top: 16px; padding: 14px 16px; border-radius: 12px; font-size: 0.88rem;
-    border-left: 4px solid;
-  }
-  .feedback.ok { background: rgba(16,185,129,0.1); border-color: var(--accent); }
-  .feedback.bad { background: rgba(244,63,94,0.1); border-color: var(--danger); }
-  .spec-badge {
-    display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.05em; padding: 2px 8px; border-radius: 5px; margin-bottom: 6px;
-  }
-  .spec-badge.endo { background: rgba(14,165,233,0.2); color: #7dd3fc; }
-  .spec-badge.perio { background: rgba(16,185,129,0.2); color: #6ee7b7; }
-  .spec-badge.pros { background: rgba(139,92,246,0.2); color: #c4b5fd; }
-  .spec-badge.omfs { background: rgba(244,63,94,0.2); color: #fda4af; }
-  .spec-badge.red { background: rgba(236,72,153,0.2); color: #f9a8d4; }
-  .nav-row { display: flex; justify-content: space-between; gap: 12px; }
-  .nav-row .btn { flex: 1; justify-content: center; }
+    /* Screens */
+    .screen { display: none; animation: fadeUp 0.35s ease; }
+    .screen.active { display: block; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
-  /* ── Results ── */
-  .results-card {
-    background: linear-gradient(145deg, var(--surface), var(--surface-2));
-    border: 1px solid var(--border); border-radius: 24px; padding: 32px 28px; text-align: center;
-  }
-  .results-card h2 { font-size: 1.4rem; margin-bottom: 6px; }
-  .big-score {
-    font-size: 3.2rem; font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-glow), var(--accent-glow));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 12px 0;
-  }
-  .rank-label { font-size: 1.1rem; font-weight: 700; color: var(--accent-glow); margin-bottom: 16px; }
-  .streak-banner {
-    display: inline-block; background: rgba(251,146,60,0.12); border: 1px solid rgba(251,146,60,0.3);
-    color: #fb923c; padding: 8px 16px; border-radius: 999px; font-weight: 650; font-size: 0.9rem; margin-bottom: 20px;
-  }
+    /* Hero */
+    .hero {
+      background: linear-gradient(145deg, var(--surface), var(--surface-2));
+      border: 1px solid var(--border); border-radius: 24px;
+      padding: 32px 28px; margin-bottom: 22px; position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; top: -40%; right: -20%; width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(14,165,233,0.18), transparent 70%);
+      pointer-events: none;
+    }
+    .hero h1 { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .hero p { color: var(--text-dim); font-size: 0.95rem; max-width: 520px; margin-bottom: 22px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 12px; font-weight: 650; font-size: 0.92rem;
+      border: none; cursor: pointer; transition: all 0.2s; position: relative;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #0284c7);
+      color: white; box-shadow: 0 4px 20px rgba(14,165,233,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(14,165,233,0.45); }
+    .btn-secondary {
+      background: var(--surface-3); color: var(--text); border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--surface-2); border-color: var(--primary); }
+    .new-badge {
+      position: absolute; top: -8px; right: -8px;
+      background: var(--accent); color: #064e3b; font-size: 0.65rem; font-weight: 800;
+      padding: 3px 8px; border-radius: 999px; letter-spacing: 0.04em;
+    }
+    .tip {
+      margin-top: 18px; padding: 14px 16px; background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.2); border-radius: 12px;
+      font-size: 0.85rem; color: var(--text-dim);
+    }
 
-  /* ── Modal ── */
-  .modal-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);
-    z-index: 100; display: none; align-items: flex-end; justify-content: center; padding: 16px;
-  }
-  .modal-overlay.show { display: flex; }
-  .modal {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 20px 20px 12px 12px;
-    width: 100%; max-width: 640px; max-height: 82vh; overflow-y: auto;
-    padding: 24px; animation: slideUp 0.3s ease;
-  }
-  @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
-  .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
-  .modal-header h3 { font-size: 1.15rem; }
-  .close-btn {
-    width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border);
-    background: var(--surface-2); color: var(--text); font-size: 1.2rem; cursor: pointer;
-    display: grid; place-items: center;
-  }
-  .vignette-section { margin-bottom: 16px; }
-  .vignette-label { font-size: 0.72rem; font-weight: 700; color: var(--primary-glow); letter-spacing: 0.06em; margin-bottom: 4px; }
-  .vignette-content { font-size: 0.9rem; color: var(--text-dim); white-space: pre-line; }
-  .flag-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-  .flag {
-    font-size: 0.72rem; font-weight: 600; background: rgba(245,158,11,0.12);
-    color: #fcd34d; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(245,158,11,0.25);
-  }
+    /* Section / Cards */
+    .section-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .summary-chip {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 10px 14px; font-size: 0.82rem; font-weight: 600;
+    }
+    .summary-chip span { color: var(--text-muted); font-weight: 500; margin-right: 4px; }
+    .case-grid { display: grid; gap: 12px; }
+    .case-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+      padding: 18px; cursor: pointer; transition: all 0.2s;
+    }
+    .case-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .case-card.today { border-color: rgba(16,185,129,0.5); background: linear-gradient(145deg, rgba(16,185,129,0.08), var(--surface)); }
+    .case-card-header { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .case-id { font-size: 0.7rem; font-weight: 700; color: var(--primary-glow); letter-spacing: 0.06em; margin-bottom: 4px; }
+    .case-title { font-weight: 700; font-size: 1.02rem; margin-bottom: 2px; }
+    .case-meta { font-size: 0.82rem; color: var(--text-muted); }
+    .score-pill {
+      flex-shrink: 0; height: fit-content; padding: 4px 10px; border-radius: 999px;
+      font-size: 0.78rem; font-weight: 700;
+    }
+    .score-pill.high { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+    .score-pill.mid { background: rgba(245,158,11,0.15); color: #fcd34d; }
+    .score-pill.low { background: rgba(244,63,94,0.15); color: #fda4af; }
+    .score-pill.new { background: rgba(14,165,233,0.15); color: #7dd3fc; }
+    .case-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+      padding: 3px 8px; border-radius: 6px;
+    }
+    .tag.endo { background: rgba(14,165,233,0.15); color: #7dd3fc; }
+    .tag.perio { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+    .tag.pros { background: rgba(139,92,246,0.15); color: #c4b5fd; }
+    .tag.omfs { background: rgba(244,63,94,0.15); color: #fda4af; }
+    .tag.red { background: rgba(236,72,153,0.15); color: #f9a8d4; }
 
-  /* ── FAB ── */
-  .fab {
-    position: fixed; bottom: 24px; right: 24px; z-index: 60;
-    width: 56px; height: 56px; border-radius: 16px;
-    background: linear-gradient(135deg, var(--primary), #0284c7);
-    color: white; font-size: 1.4rem; border: none; cursor: pointer;
-    box-shadow: 0 6px 24px rgba(14,165,233,0.4); display: none;
-    align-items: center; justify-content: center; transition: transform 0.2s;
-  }
-  .fab.show { display: flex; animation: pulse 2s infinite; }
-  .fab:hover { transform: scale(1.08); }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 6px 24px rgba(14,165,233,0.4); }
-    50% { box-shadow: 0 6px 28px rgba(14,165,233,0.65); }
-  }
+    /* Quiz */
+    .progress-wrap { margin-bottom: 18px; }
+    .progress-meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
+    .progress-bar { height: 6px; background: var(--surface-3); border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 99px; transition: width 0.35s ease; }
+    .question-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+      padding: 24px; margin-bottom: 16px;
+    }
+    .q-num { font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; margin-bottom: 10px; }
+    .q-text { font-size: 1.08rem; font-weight: 650; margin-bottom: 18px; line-height: 1.45; }
+    .options { display: grid; gap: 10px; }
+    .option {
+      background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px 16px; cursor: pointer; transition: all 0.15s; font-size: 0.92rem;
+    }
+    .option:hover:not(.disabled) { border-color: var(--primary); background: rgba(14,165,233,0.08); }
+    .option.selected { border-color: var(--primary); background: rgba(14,165,233,0.12); }
+    .option.correct { border-color: var(--accent); background: rgba(16,185,129,0.12); }
+    .option.wrong { border-color: var(--danger); background: rgba(244,63,94,0.1); }
+    .option.disabled { cursor: default; opacity: 0.85; }
+    .feedback {
+      margin-top: 16px; padding: 14px 16px; border-radius: 12px; font-size: 0.88rem;
+      border-left: 4px solid;
+    }
+    .feedback.ok { background: rgba(16,185,129,0.1); border-color: var(--accent); }
+    .feedback.bad { background: rgba(244,63,94,0.1); border-color: var(--danger); }
+    .spec-badge {
+      display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; padding: 2px 8px; border-radius: 5px; margin-bottom: 6px;
+    }
+    .spec-badge.endo { background: rgba(14,165,233,0.2); color: #7dd3fc; }
+    .spec-badge.perio { background: rgba(16,185,129,0.2); color: #6ee7b7; }
+    .spec-badge.pros { background: rgba(139,92,246,0.2); color: #c4b5fd; }
+    .spec-badge.omfs { background: rgba(244,63,94,0.2); color: #fda4af; }
+    .spec-badge.red { background: rgba(236,72,153,0.2); color: #f9a8d4; }
+    .nav-row { display: flex; justify-content: space-between; gap: 12px; }
+    .nav-row .btn { flex: 1; justify-content: center; }
 
-  /* ── Review ── */
-  .review-q {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-    padding: 16px; margin-bottom: 12px; border-left: 4px solid var(--border);
-  }
-  .review-q.correct { border-left-color: var(--accent); }
-  .review-q.incorrect { border-left-color: var(--danger); }
-  .review-q-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
-  .review-q-num { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); }
-  .review-status { font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 5px; }
-  .review-status.ok { background: rgba(16,185,129,0.15); color: #6ee7b7; }
-  .review-status.bad { background: rgba(244,63,94,0.15); color: #fda4af; }
-  .review-q-text { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
-  .review-answer { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 3px; }
-  .review-answer strong { color: var(--text); }
-  .review-exp { font-size: 0.82rem; color: var(--text-muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+    /* Results */
+    .results-card {
+      background: linear-gradient(145deg, var(--surface), var(--surface-2));
+      border: 1px solid var(--border); border-radius: 24px; padding: 32px 28px; text-align: center;
+    }
+    .results-card h2 { font-size: 1.4rem; margin-bottom: 6px; }
+    .big-score {
+      font-size: 3.2rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-glow), var(--accent-glow));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 12px 0;
+    }
+    .rank-label { font-size: 1.1rem; font-weight: 700; color: var(--accent-glow); margin-bottom: 16px; }
+    .streak-banner {
+      display: inline-block; background: rgba(251,146,60,0.12); border: 1px solid rgba(251,146,60,0.3);
+      color: #fb923c; padding: 8px 16px; border-radius: 999px; font-weight: 650; font-size: 0.9rem; margin-bottom: 20px;
+    }
 
-  .empty { text-align: center; padding: 40px 20px; color: var(--text-muted); }
-  .empty-icon { font-size: 2.5rem; margin-bottom: 10px; }
+    /* Modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);
+      z-index: 100; display: none; align-items: flex-end; justify-content: center; padding: 16px;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px 20px 12px 12px;
+      width: 100%; max-width: 640px; max-height: 82vh; overflow-y: auto;
+      padding: 24px; animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .modal-header h3 { font-size: 1.15rem; }
+    .close-btn {
+      width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border);
+      background: var(--surface-2); color: var(--text); font-size: 1.2rem; cursor: pointer;
+      display: grid; place-items: center;
+    }
+    .vignette-section { margin-bottom: 16px; }
+    .vignette-label { font-size: 0.72rem; font-weight: 700; color: var(--primary-glow); letter-spacing: 0.06em; margin-bottom: 4px; }
+    .vignette-content { font-size: 0.9rem; color: var(--text-dim); white-space: pre-line; }
+    .flag-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .flag {
+      font-size: 0.72rem; font-weight: 600; background: rgba(245,158,11,0.12);
+      color: #fcd34d; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(245,158,11,0.25);
+    }
 
-  /* ── Confetti ── */
-  .confetti-piece {
-    position: fixed; z-index: 200; pointer-events: none;
-    animation: confettiFall 1.1s ease-out forwards;
-  }
-  @keyframes confettiFall {
-    0% { opacity: 1; transform: translateY(0) rotate(0); }
-    100% { opacity: 0; transform: translateY(120px) rotate(720deg); }
-  }
+    /* FAB */
+    .fab {
+      position: fixed; bottom: 24px; right: 24px; z-index: 60;
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), #0284c7);
+      color: white; font-size: 1.4rem; border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(14,165,233,0.4); display: none;
+      align-items: center; justify-content: center; transition: transform 0.2s;
+    }
+    .fab.show { display: flex; animation: pulse 2s infinite; }
+    .fab:hover { transform: scale(1.08); }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(14,165,233,0.4); }
+      50% { box-shadow: 0 6px 28px rgba(14,165,233,0.65); }
+    }
 
-  @media (max-width: 520px) {
-    .hero h1 { font-size: 1.3rem; }
-    .status-bar { flex-direction: column; align-items: flex-start; }
-    .big-score { font-size: 2.6rem; }
-    .home-btn { width: 34px; height: 34px; }
-  }
-</style>
+    /* Review */
+    .review-q {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 16px; margin-bottom: 12px; border-left: 4px solid var(--border);
+    }
+    .review-q.correct { border-left-color: var(--accent); }
+    .review-q.incorrect { border-left-color: var(--danger); }
+    .review-q-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .review-q-num { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); }
+    .review-status { font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 5px; }
+    .review-status.ok { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+    .review-status.bad { background: rgba(244,63,94,0.15); color: #fda4af; }
+    .review-q-text { font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .review-answer { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 3px; }
+    .review-answer strong { color: var(--text); }
+    .review-exp { font-size: 0.82rem; color: var(--text-muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+    .empty { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+    .empty-icon { font-size: 2.5rem; margin-bottom: 10px; }
+
+    /* Confetti */
+    .confetti-piece {
+      position: fixed; z-index: 200; pointer-events: none;
+      animation: confettiFall 1.1s ease-out forwards;
+    }
+    @keyframes confettiFall {
+      0% { opacity: 1; transform: translateY(0) rotate(0); }
+      100% { opacity: 0; transform: translateY(120px) rotate(720deg); }
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 { font-size: 1.3rem; }
+      .status-bar { flex-direction: column; align-items: flex-start; }
+      .big-score { font-size: 2.6rem; }
+      .home-btn { width: 34px; height: 34px; }
+    }
+  </style>
 </head>
 <body>
 <div class="app">
-
-  <!-- ═══ Sticky Status Bar (Home button always visible) ═══ -->
+  <!-- Sticky Status Bar -->
   <div class="status-bar">
     <div class="status-left">
       <button class="home-btn" onclick="goHome()" title="Home">🏠</button>
@@ -367,7 +369,7 @@
     </div>
   </div>
 
-  <!-- ═══ HOME ═══ -->
+  <!-- HOME SCREEN -->
   <div id="screen-home" class="screen active">
     <div class="hero">
       <h1>Daily Dental Board Prep</h1>
@@ -389,7 +391,7 @@
     </div>
   </div>
 
-  <!-- ═══ LIBRARY ═══ -->
+  <!-- LIBRARY SCREEN -->
   <div id="screen-library" class="screen">
     <div class="section-title">📚 Case Library</div>
     <div class="summary-chips" id="librarySummary"></div>
@@ -400,7 +402,7 @@
     </div>
   </div>
 
-  <!-- ═══ PROGRESS / HISTORY ═══ -->
+  <!-- PROGRESS / HISTORY SCREEN -->
   <div id="screen-progress" class="screen">
     <div class="section-title">📊 My Progress &amp; Reviews</div>
     <div class="summary-chips" id="progressSummary"></div>
@@ -411,7 +413,7 @@
     </div>
   </div>
 
-  <!-- ═══ QUIZ ═══ -->
+  <!-- QUIZ SCREEN -->
   <div id="screen-quiz" class="screen">
     <div class="progress-wrap">
       <div class="progress-meta">
@@ -427,7 +429,7 @@
     </div>
   </div>
 
-  <!-- ═══ RESULTS ═══ -->
+  <!-- RESULTS SCREEN -->
   <div id="screen-results" class="screen">
     <div class="results-card">
       <h2>Case Complete</h2>
@@ -442,7 +444,7 @@
     </div>
   </div>
 
-  <!-- ═══ ATTEMPT REVIEW ═══ -->
+  <!-- ATTEMPT REVIEW SCREEN -->
   <div id="screen-attempt" class="screen">
     <div class="section-title" id="attemptTitle">Attempt Review</div>
     <div id="attemptVignette" style="margin-bottom:20px;"></div>
@@ -452,10 +454,9 @@
       <button class="btn btn-secondary" onclick="showScreen('home')">🏠 Home</button>
     </div>
   </div>
-
 </div>
 
-<!-- Floating vignette button (quiz only) -->
+<!-- Floating vignette button -->
 <button class="fab" id="fabCase" onclick="openCaseFile()" title="Open clinical vignette">📋</button>
 
 <!-- Modal -->
@@ -470,24 +471,14 @@
 </div>
 
 <script>
-/* ══════════════════════════════════════════════════════════════
-   DENTAL GRAND ROUNDS — v3.3  Master Application
-   ──────────────────────────────────────────────────────────────
-   Pure client-side single-file app.
-   Case data is injected via the CASES object below.
-   ══════════════════════════════════════════════════════════════ */
-
+/* DENTAL GRAND ROUNDS — Single Source of Truth Engine */
 const STORAGE_KEY = 'dgr_state_v33';
-const CASES_URL = 'cases.json';   // same-folder on GitHub Pages / static host
+const CASES_URL = 'cases.json';
 
-/* Runtime case bank — populated by fetch */
 let CASES = {};
 let casesLoaded = false;
 let casesError = null;
 
-/* ══════════════════════════════════════════════════════════════
-   STATE ENGINE
-   ══════════════════════════════════════════════════════════════ */
 function todayStr() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -514,9 +505,12 @@ function saveState(state) {
 
 function updateStatusBar() {
   const s = loadState();
-  document.getElementById('statStreak').textContent = `🔥 ${s.streak}`;
-  document.getElementById('statCases').textContent = `📚 ${s.totalCases}`;
-  document.getElementById('statRank').textContent = s.lastRank || 'Intern';
+  const streakEl = document.getElementById('statStreak');
+  const casesEl = document.getElementById('statCases');
+  const rankEl = document.getElementById('statRank');
+  if (streakEl) streakEl.textContent = `🔥 ${s.streak}`;
+  if (casesEl) casesEl.textContent = `📚 ${s.totalCases}`;
+  if (rankEl) rankEl.textContent = s.lastRank || 'Intern';
 }
 
 function rankFromScore(score, total) {
@@ -528,9 +522,6 @@ function rankFromScore(score, total) {
   return 'Intern';
 }
 
-/* ══════════════════════════════════════════════════════════════
-   SCREEN ROUTER + HOME PROTECTION
-   ══════════════════════════════════════════════════════════════ */
 let currentCaseId = null;
 let currentQuestions = [];
 let currentIndex = 0;
@@ -542,8 +533,8 @@ function showScreen(name) {
   const target = document.getElementById('screen-' + name);
   if (target) target.classList.add('active');
 
-  // FAB only during quiz
-  document.getElementById('fabCase').classList.toggle('show', name === 'quiz');
+  const fab = document.getElementById('fabCase');
+  if (fab) fab.classList.toggle('show', name === 'quiz');
 
   if (name === 'library') renderLibrary();
   if (name === 'progress') renderProgress();
@@ -551,8 +542,7 @@ function showScreen(name) {
 }
 
 function goHome() {
-  // Protect in-progress quiz
-  if (document.getElementById('screen-quiz').classList.contains('active')) {
+  if (document.getElementById('screen-quiz')?.classList.contains('active')) {
     const answered = userAnswers.filter(a => a !== null).length;
     if (answered > 0) {
       const ok = confirm('You have answered questions in this case.\nLeave and discard this attempt?');
@@ -562,30 +552,30 @@ function goHome() {
   showScreen('home');
 }
 
-/* ══════════════════════════════════════════════════════════════
-   LIBRARY RENDERER
-   ══════════════════════════════════════════════════════════════ */
 function renderLibrary() {
   const grid = document.getElementById('libraryGrid');
   const summary = document.getElementById('librarySummary');
   const state = loadState();
   const cases = Object.values(CASES);
 
-  // Summary chips
   const completed = cases.filter(c => state.bestScores[c.id] !== undefined).length;
-  const totalQ = cases.reduce((sum, c) => sum + (c.questions ? c.questions.length : 0), 0);
   const bestSum = cases.reduce((sum, c) => sum + (state.bestScores[c.id] || 0), 0);
-  const avgBest = completed ? Math.round((bestSum / cases.reduce((s, c) => s + (state.bestScores[c.id] !== undefined ? c.questions.length : 0), 0)) * 100) : 0;
+  const totalCompletedQ = cases.reduce((s, c) => s + (state.bestScores[c.id] !== undefined ? c.questions.length : 0), 0);
+  const avgBest = completed && totalCompletedQ ? Math.round((bestSum / totalCompletedQ) * 100) : 0;
 
-  summary.innerHTML = `
-    <div class="summary-chip"><span>Cases</span> ${cases.length}</div>
-    <div class="summary-chip"><span>Completed</span> ${completed}</div>
-    <div class="summary-chip"><span>Best Avg</span> ${completed ? avgBest + '%' : '—'}</div>
-  `;
+  if (summary) {
+    summary.innerHTML = `
+      <div class="summary-chip"><span>Cases</span> ${cases.length}</div>
+      <div class="summary-chip"><span>Completed</span> ${completed}</div>
+      <div class="summary-chip"><span>Best Avg</span> ${completed ? avgBest + '%' : '—'}</div>
+    `;
+  }
 
+  if (!grid) return;
   grid.innerHTML = '';
+
   if (!cases.length) {
-    grid.innerHTML = `<div class="empty"><div class="empty-icon">📭</div>No cases loaded yet.<br>Paste case data into the CASES object.</div>`;
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">📭</div>No cases loaded yet.<br>Ensure cases.json exists in your repository root.</div>`;
     return;
   }
 
@@ -619,15 +609,11 @@ function renderLibrary() {
   });
 }
 
-/* ══════════════════════════════════════════════════════════════
-   PROGRESS / HISTORY RENDERER
-   ══════════════════════════════════════════════════════════════ */
 function renderProgress() {
   const grid = document.getElementById('progressGrid');
   const summary = document.getElementById('progressSummary');
   const state = loadState();
 
-  // Aggregate stats
   let totalCorrect = 0, totalAnswered = 0, totalMissed = 0;
   state.history.forEach(h => {
     totalCorrect += h.score;
@@ -636,13 +622,16 @@ function renderProgress() {
   });
   const accuracy = totalAnswered ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
 
-  summary.innerHTML = `
-    <div class="summary-chip"><span>Attempts</span> ${state.history.length}</div>
-    <div class="summary-chip"><span>Correct</span> ${totalCorrect}</div>
-    <div class="summary-chip"><span>Missed</span> ${totalMissed}</div>
-    <div class="summary-chip"><span>Accuracy</span> ${accuracy}%</div>
-  `;
+  if (summary) {
+    summary.innerHTML = `
+      <div class="summary-chip"><span>Attempts</span> ${state.history.length}</div>
+      <div class="summary-chip"><span>Correct</span> ${totalCorrect}</div>
+      <div class="summary-chip"><span>Missed</span> ${totalMissed}</div>
+      <div class="summary-chip"><span>Accuracy</span> ${accuracy}%</div>
+    `;
+  }
 
+  if (!grid) return;
   if (!state.history.length) {
     grid.innerHTML = `<div class="empty"><div class="empty-icon">📭</div>No completed cases yet.<br>Finish a case to start your archive.</div>`;
     return;
@@ -656,7 +645,6 @@ function renderProgress() {
     const card = document.createElement('div');
     card.className = 'case-card';
     card.onclick = () => openAttemptReview(h);
-
     card.innerHTML = `
       <div class="case-card-header">
         <div>
@@ -671,20 +659,15 @@ function renderProgress() {
   });
 }
 
-/* ══════════════════════════════════════════════════════════════
-   ATTEMPT REVIEW
-   ══════════════════════════════════════════════════════════════ */
 function openAttemptReview(h) {
   const c = CASES[h.caseId];
   if (!c) return;
-
   document.getElementById('attemptTitle').textContent = `${c.title} — ${h.date}`;
   document.getElementById('attemptVignette').innerHTML = `
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;">
       <div class="vignette-label">KEY FLAGS</div>
       <div class="flag-chips">${(c.flags || []).map(f => `<span class="flag">${f}</span>`).join('')}</div>
     </div>`;
-
   const qBox = document.getElementById('attemptQuestions');
   qBox.innerHTML = '';
   c.questions.forEach((q, i) => {
@@ -706,9 +689,6 @@ function openAttemptReview(h) {
   showScreen('attempt');
 }
 
-/* ══════════════════════════════════════════════════════════════
-   QUIZ ENGINE
-   ══════════════════════════════════════════════════════════════ */
 function startCase(caseId) {
   if (!casesLoaded) {
     alert('Case bank is still loading. Please wait a moment.');
@@ -808,7 +788,7 @@ function finishCase() {
   const state = loadState();
   const today = todayStr();
 
-  // Streak logic
+  // Streak calculation
   if (state.lastDate !== today) {
     if (state.lastDate) {
       const last = new Date(state.lastDate);
@@ -821,15 +801,11 @@ function finishCase() {
     state.totalCases += 1;
   }
 
-  // Best score
   if (!state.bestScores[currentCaseId] || score > state.bestScores[currentCaseId]) {
     state.bestScores[currentCaseId] = score;
   }
-
-  // Attempt count
   state.attemptCounts[currentCaseId] = (state.attemptCounts[currentCaseId] || 0) + 1;
 
-  // Save attempt
   const attempt = {
     id: Date.now().toString(36),
     caseId: currentCaseId,
@@ -843,6 +819,7 @@ function finishCase() {
       correctIndex: currentQuestions[i].correct
     }))
   };
+
   state.history.push(attempt);
   state.lastRank = rank;
   saveState(state);
@@ -852,12 +829,10 @@ function finishCase() {
   document.getElementById('finalRank').textContent = rank;
   document.getElementById('streakBanner').textContent =
     `🔥 Streak: ${state.streak} day${state.streak !== 1 ? 's' : ''}  •  ${state.totalCases} case${state.totalCases !== 1 ? 's' : ''} total`;
+
   showScreen('results');
 }
 
-/* ══════════════════════════════════════════════════════════════
-   VIGNETTE MODAL
-   ══════════════════════════════════════════════════════════════ */
 function openCaseFile() {
   const c = CASES[currentCaseId];
   if (!c) return;
@@ -900,9 +875,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
 
-/* ══════════════════════════════════════════════════════════════
-   CONFETTI
-   ══════════════════════════════════════════════════════════════ */
 function fireConfetti() {
   const colors = ['#0ea5e9', '#10b981', '#8b5cf6', '#f59e0b', '#f43f5e', '#38bdf8'];
   for (let i = 0; i < 24; i++) {
@@ -920,11 +892,7 @@ function fireConfetti() {
   }
 }
 
-/* ══════════════════════════════════════════════════════════════
-   LOAD CASES FROM cases.json
-   ══════════════════════════════════════════════════════════════ */
 function normalizeCase(raw) {
-  // Ensure every case has the fields the UI expects
   const v = raw.vignette || {};
   return {
     id: raw.id,
@@ -957,20 +925,17 @@ async function loadCases() {
   const statusEl = document.getElementById('loadStatus');
   try {
     const res = await fetch(CASES_URL, { cache: 'no-store' });
-    if (!res.ok) throw new Error('HTTP ' + res.status + ' — is cases.json in the same folder as index.html?');
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' — is cases.json present?');
     const data = await res.json();
     const list = Array.isArray(data) ? data : Object.values(data);
-
     CASES = {};
     list.forEach(raw => {
       const c = normalizeCase(raw);
       if (c.id) CASES[c.id] = c;
     });
 
-    // Ensure exactly one "today" case
     const todayMarked = Object.values(CASES).filter(c => c.isToday);
     if (todayMarked.length === 0 && Object.keys(CASES).length) {
-      // rotate by day-of-year so the featured case changes daily
       const ids = Object.keys(CASES);
       const day = Math.floor(Date.now() / 86400000);
       const pick = ids[day % ids.length];
@@ -981,29 +946,26 @@ async function loadCases() {
     casesError = null;
     if (statusEl) statusEl.style.display = 'none';
     updateStatusBar();
-    // refresh home button label
+
     const today = Object.values(CASES).find(c => c.isToday);
     const btn = document.getElementById('btnStartToday');
     if (btn && today) {
-      btn.querySelector('span').textContent = '▶ Start Today\'s Case';
+      btn.querySelector('span').textContent = "▶ Start Today's Case";
     }
-    console.log('[DGR] Loaded', Object.keys(CASES).length, 'cases from', CASES_URL);
   } catch (err) {
     casesLoaded = false;
     casesError = err.message || String(err);
-    console.error('[DGR] Failed to load cases.json', err);
     if (statusEl) {
       statusEl.style.display = 'block';
       statusEl.innerHTML = '<strong>Could not load cases.json</strong><br>' +
-        casesError +
-        '<br><span style="font-size:0.8rem;opacity:0.8">Make sure cases.json is committed next to index.html and you are viewing via GitHub Pages (or any static host), not the raw file:// URL.</span>';
+        casesError + '<br><span style="font-size:0.8rem;opacity:0.8">Ensure cases.json is uploaded to your repository root.</span>';
     }
   }
 }
 
 function startTodaysCase() {
   if (!casesLoaded) {
-    alert('Cases are still loading or failed to load. Check the console / load status.');
+    alert('Cases are still loading or failed to load. Check that cases.json is present.');
     return;
   }
   const todayCase = Object.values(CASES).find(c => c.isToday);
@@ -1016,98 +978,9 @@ function startTodaysCase() {
   }
 }
 
-/* ══════════════════════════════════════════════════════════════
-   BOOT
-   ══════════════════════════════════════════════════════════════ */
-// --- AUTO-SAVE & PERSISTENT PROGRESS SYSTEM ---
-const STORAGE_KEY = 'dental_sim_progress_v1';
-
-// 1. Initialize or load existing stats
-let userProgress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-  streak: 0,
-  bestStreak: 0,
-  totalAnswered: 0,
-  totalCorrect: 0,
-  history: {}
-};
-
-// 2. Helper to save data to device memory
-function saveProgress() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(userProgress));
-}
-
-// 3. Function to record user answer
-function recordAnswerResult(caseId, isCorrect) {
-  userProgress.totalAnswered++;
-  if (isCorrect) {
-    userProgress.totalCorrect++;
-    userProgress.streak++;
-    if (userProgress.streak > userProgress.bestStreak) {
-      userProgress.bestStreak = userProgress.streak;
-    }
-  } else {
-    userProgress.streak = 0; // Reset streak on incorrect answer
-  }
-
-  // Record case status
-  if (caseId) {
-    userProgress.history[caseId] = {
-      completedAt: new Date().toISOString(),
-      correct: isCorrect
-    };
-  }
-
-  saveProgress();
-  updateUIStats();
-}
-
-// 4. Update on-screen badges/counters
-function updateUIStats() {
-  const scoreElements = document.querySelectorAll('[id*="score"], .score-display');
-  const streakElements = document.querySelectorAll('[id*="streak"], .streak-display');
-
-  scoreElements.forEach(el => {
-    if (el.tagName !== 'BUTTON') {
-      el.innerText = `Score: ${userProgress.totalCorrect} / ${userProgress.totalAnswered}`;
-    }
-  });
-
-  streakElements.forEach(el => {
-    el.innerText = `🔥 Streak: ${userProgress.streak}`;
-  });
-}
-
-// 5. Global click interceptor (Listens to all answer clicks automatically)
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('button');
-  if (!btn) return;
-
-  // Check if clicked element is an option button (has option class or text A/B/C/D)
-  const isOptionBtn = btn.id?.includes('btn-') || 
-                      btn.id?.includes('opt') || 
-                      btn.classList.contains('option-btn') ||
-                      /^[A-D]\./.test(btn.innerText.trim());
-
-  if (isOptionBtn && !btn.disabled) {
-    // Delay slightly to let the existing validation logic determine correct/incorrect
-    setTimeout(() => {
-      const isCorrect = btn.classList.contains('bg-emerald-950') || 
-                        btn.classList.contains('correct') || 
-                        btn.style.borderColor?.includes('green') ||
-                        btn.classList.contains('border-emerald-500');
-      
-      const currentCaseId = document.querySelector('[class*="font-mono"]')?.innerText || 'CASE';
-      recordAnswerResult(currentCaseId, isCorrect);
-    }, 50);
-  }
-});
-
-// Run startup routines
+// Startup
 updateStatusBar();
 loadCases();
-updateUIStats();
-// ----------------------------------------------
-
 </script>
 </body>
 </html>
