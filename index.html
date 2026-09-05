@@ -1019,8 +1019,95 @@ function startTodaysCase() {
 /* ══════════════════════════════════════════════════════════════
    BOOT
    ══════════════════════════════════════════════════════════════ */
+// --- AUTO-SAVE & PERSISTENT PROGRESS SYSTEM ---
+const STORAGE_KEY = 'dental_sim_progress_v1';
+
+// 1. Initialize or load existing stats
+let userProgress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+  streak: 0,
+  bestStreak: 0,
+  totalAnswered: 0,
+  totalCorrect: 0,
+  history: {}
+};
+
+// 2. Helper to save data to device memory
+function saveProgress() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(userProgress));
+}
+
+// 3. Function to record user answer
+function recordAnswerResult(caseId, isCorrect) {
+  userProgress.totalAnswered++;
+  if (isCorrect) {
+    userProgress.totalCorrect++;
+    userProgress.streak++;
+    if (userProgress.streak > userProgress.bestStreak) {
+      userProgress.bestStreak = userProgress.streak;
+    }
+  } else {
+    userProgress.streak = 0; // Reset streak on incorrect answer
+  }
+
+  // Record case status
+  if (caseId) {
+    userProgress.history[caseId] = {
+      completedAt: new Date().toISOString(),
+      correct: isCorrect
+    };
+  }
+
+  saveProgress();
+  updateUIStats();
+}
+
+// 4. Update on-screen badges/counters
+function updateUIStats() {
+  const scoreElements = document.querySelectorAll('[id*="score"], .score-display');
+  const streakElements = document.querySelectorAll('[id*="streak"], .streak-display');
+
+  scoreElements.forEach(el => {
+    if (el.tagName !== 'BUTTON') {
+      el.innerText = `Score: ${userProgress.totalCorrect} / ${userProgress.totalAnswered}`;
+    }
+  });
+
+  streakElements.forEach(el => {
+    el.innerText = `🔥 Streak: ${userProgress.streak}`;
+  });
+}
+
+// 5. Global click interceptor (Listens to all answer clicks automatically)
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+
+  // Check if clicked element is an option button (has option class or text A/B/C/D)
+  const isOptionBtn = btn.id?.includes('btn-') || 
+                      btn.id?.includes('opt') || 
+                      btn.classList.contains('option-btn') ||
+                      /^[A-D]\./.test(btn.innerText.trim());
+
+  if (isOptionBtn && !btn.disabled) {
+    // Delay slightly to let the existing validation logic determine correct/incorrect
+    setTimeout(() => {
+      const isCorrect = btn.classList.contains('bg-emerald-950') || 
+                        btn.classList.contains('correct') || 
+                        btn.style.borderColor?.includes('green') ||
+                        btn.classList.contains('border-emerald-500');
+      
+      const currentCaseId = document.querySelector('[class*="font-mono"]')?.innerText || 'CASE';
+      recordAnswerResult(currentCaseId, isCorrect);
+    }, 50);
+  }
+});
+
+// Run startup routines
 updateStatusBar();
 loadCases();
+updateUIStats();
+// ----------------------------------------------
+
 </script>
 </body>
 </html>
