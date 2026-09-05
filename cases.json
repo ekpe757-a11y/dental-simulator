@@ -1366,5 +1366,399 @@
         "explanation": "Posts do not strengthen teeth; they retain cores when coronal structure is lacking. When sufficient walls and a 2 mm ferrule remain, a bonded core (or even an amalgam or composite core) without a post is preferred. Unnecessary posts remove additional dentin and can increase root fracture risk. This principle is well established in the endodontic–prosthodontic literature."
       }
     ]
-  }
-]
+  }, [
+  {
+    "id": "OMFS-101",
+    "specialty": "Oral & Maxillofacial Surgery",
+    "difficulty": "Board Level",
+    "title": "High-Risk Impacted #17 — Inferior Alveolar Nerve Proximity & Coronectomy Decision",
+    "short": "28F • ASA I • Deep vertical impaction • CBCT shows canal compression",
+    "tags": ["omfs", "endo", "red"],
+    "isToday": false,
+    "patient": {
+      "age": 28,
+      "gender": "Female",
+      "medical_history": "Healthy, no medications, NKDA. Presents for evaluation of recurrent pericoronitis #17.",
+      "chief_complaint": "Repeated swelling and pain behind my lower left wisdom tooth for the past 8 months."
+    },
+    "clinical_findings": {
+      "exam": "Partial soft-tissue impaction #17, mild erythema, probing depth 7 mm distal. No neurosensory deficit. #32 similarly impacted but asymptomatic.",
+      "imaging": "Panoramic: deep vertical #17 with loss of white lines of IAN canal and darkening of root. CBCT: canal compressed and lingually diverted by distal root; residual bone above canal <1 mm; no direct interruption of canal cortex."
+    },
+    "flags": ["IAN proximity", "recurrent pericoronitis", "coronectomy candidate", "informed consent critical"],
+    "guidelines": ["AAOMS Parameters of Care (Third Molar)", "Sedaghatfar / Rood & Shehab radiographic predictors", "Coronectomy literature (Pogrel, Renton)"],
+    "vignette": {
+      "demographics": "28-year-old healthy female, ASA I.",
+      "chief": "Recurrent pericoronitis associated with partially erupted #17.",
+      "clinical": "Soft-tissue impaction, distal probing 7 mm, no paresthesia.",
+      "endo": "N/A — vital adjacent teeth.",
+      "radio": "CBCT confirms intimate relationship of distal root with IAN canal (compression + diversion) without frank canal cortical breach."
+    },
+    "questions": [
+      {
+        "q": "According to current evidence-based risk stratification, which radiographic finding most strongly elevates the risk of IAN injury and supports consideration of coronectomy rather than complete extraction?",
+        "options": [
+          "Darkening of the root alone on panoramic radiograph",
+          "Interruption of the white line of the canal on panoramic film",
+          "CBCT demonstration of canal compression with <1–2 mm residual bone and diversion of the canal by the root",
+          "Vertical impaction angulation >45 degrees"
+        ],
+        "correct": 2,
+        "specialist": "omfs",
+        "explanation": "While panoramic signs (Rood & Shehab) raise suspicion, CBCT quantification of canal compression, diversion, and residual bone height provides the highest positive predictive value for nerve injury. When the root is intimately related and complete removal would require significant manipulation near the canal, coronectomy (intentional root retention) has Level 2–3 evidence for markedly reduced permanent neurosensory deficit rates while still eliminating the pericoronitis source."
+      },
+      {
+        "q": "If coronectomy is selected, which statement regarding technique and follow-up is most accurate?",
+        "options": [
+          "The pulp must be treated endodontically before root retention",
+          "Roots should be left 3–4 mm above the crestal bone to facilitate later retrieval",
+          "Enamel and any exposed pulp are reduced so the remaining root is at least 3 mm below the crestal bone; primary soft-tissue closure is preferred; late root migration is monitored but intervention is needed only if exposure or infection occurs",
+          "Antibiotics are mandatory for 10 days and the patient must avoid chewing on that side for 6 months"
+        ],
+        "correct": 2,
+        "specialist": "omfs",
+        "explanation": "Standard coronectomy protocol (Pogrel/Renton modifications) requires complete enamel removal and reduction of the root surface so it lies well below the crest, allowing bone and soft tissue to cover it. Pulp treatment is unnecessary; vital roots are well tolerated. Late migration occurs in a minority of cases and is managed only if clinical problems arise. Routine prolonged antibiotics are not evidence-based."
+      },
+      {
+        "q": "Red-team consent point: Which risk must be explicitly discussed and documented when offering coronectomy versus complete removal?",
+        "options": [
+          "Only the risk of dry socket",
+          "Possibility of subsequent root migration requiring a second procedure, residual infection, and the residual (though reduced) risk of temporary or permanent neurosensory change",
+          "Guaranteed elimination of all future pathology",
+          "No additional risks compared with routine extraction"
+        ],
+        "correct": 1,
+        "specialist": "red",
+        "explanation": "Coronectomy is a risk-reduction strategy, not risk elimination. Patients must understand that a second procedure may be required if the retained root becomes exposed or symptomatic, that infection can still occur, and that temporary or permanent nerve injury remains possible (though significantly less frequent than with high-risk complete extraction). Failure to document this shared decision-making is a common source of later dissatisfaction or claims."
+      }
+    ]
+  },
+  {
+    "id": "OMFS-102",
+    "specialty": "Oral & Maxillofacial Surgery",
+    "difficulty": "Board Level",
+    "title": "Stage 2 Medication-Related Osteonecrosis of the Jaw (Denosumab) — Management Sequencing",
+    "short": "68F • Metastatic breast cancer • Denosumab • Exposed bone 8 weeks",
+    "tags": ["omfs", "red", "perio"],
+    "isToday": false,
+    "patient": {
+      "age": 68,
+      "gender": "Female",
+      "medical_history": "Metastatic breast cancer on denosumab 120 mg SC q4 weeks for 18 months; prior zoledronic acid for 2 years. No radiation. HbA1c 6.4%. On anastrozole.",
+      "chief_complaint": "Pain and exposed bone in the lower right jaw after a dental cleaning 3 months ago; antibiotics have not resolved it."
+    },
+    "clinical_findings": {
+      "exam": "2.5 cm area of exposed necrotic bone buccal and lingual #30–31 region, purulent drainage, soft-tissue erythema, no extraoral fistula, no neurosensory change. #30 has Class II mobility.",
+      "imaging": "CBCT: mixed osteolysis and sclerosis of the right mandibular body with sequestra; periosteal reaction; no pathologic fracture. Stage 2 MRONJ."
+    },
+    "flags": ["MRONJ Stage 2", "denosumab", "drug holiday controversy", "surgical vs non-surgical"],
+    "guidelines": ["AAOMS MRONJ Position Paper 2022", "ASCO/MASCC guidance", "Ruggiero staging"],
+    "vignette": {
+      "demographics": "68-year-old female with metastatic breast cancer on long-term denosumab (and prior IV bisphosphonate).",
+      "chief": "Exposed bone and pain after dental prophylaxis.",
+      "clinical": "Exposed necrotic bone with infection (Stage 2), mobile adjacent tooth.",
+      "endo": "N/A",
+      "radio": "CBCT confirms osteonecrosis with sequestra, no fracture."
+    },
+    "questions": [
+      {
+        "q": "According to the 2022 AAOMS Position Paper, what is the preferred initial management approach for Stage 2 MRONJ in this patient?",
+        "options": [
+          "Immediate segmental resection and reconstruction plate",
+          "Conservative therapy: antimicrobial mouth rinses, systemic antibiotics for acute infection, superficial debridement of mobile sequestra, and pain control; surgery reserved for progression or refractory disease",
+          "Hyperbaric oxygen as first-line monotherapy",
+          "Immediate drug holiday for 12 months then wide resection"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "AAOMS 2022 continues to support stage-specific therapy. Stage 2 (exposed bone + infection) is managed primarily with local care, antibiotics directed at the infection, and removal of only mobile necrotic fragments. Aggressive resection is reserved for Stage 3 or refractory Stage 2. Hyperbaric oxygen has insufficient evidence as primary therapy. Drug interruption decisions require oncology collaboration and are not automatic."
+      },
+      {
+        "q": "Regarding interruption of denosumab, which statement is most consistent with current multi-disciplinary guidance?",
+        "options": [
+          "Denosumab must be stopped for at least 6 months before any oral surgical intervention",
+          "Because denosumab has a shorter half-life than bisphosphonates, a brief interruption (in consultation with the oncologist) may be considered, but the anti-resorptive effect dissipates more rapidly and rebound bone turnover is a concern; decisions are individualized",
+          "Denosumab never needs to be interrupted because MRONJ risk is lower than with zoledronic acid",
+          "Switch immediately to an oral bisphosphonate"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "Denosumab’s reversible effect on RANKL allows the theoretical possibility of a drug holiday with recovery of bone remodeling, unlike the long skeletal half-life of IV bisphosphonates. However, oncology teams must weigh skeletal-related event risk versus MRONJ healing potential. There is no universal mandatory holiday; decisions are case-by-case with the prescribing oncologist. Rebound vertebral fractures after denosumab cessation are a recognized concern."
+      },
+      {
+        "q": "If the exposed area progresses to Stage 3 (pathologic fracture or extraoral fistula), what surgical principle is currently favored when resection is required?",
+        "options": [
+          "Minimal curettage only",
+          "Resection to bleeding bone margins with primary soft-tissue coverage; reconstruction deferred or performed with vascularized tissue when continuity is lost, coordinated with oncology regarding timing of anti-resorptive restart",
+          "Immediate free-flap reconstruction in every case regardless of disease status",
+          "Extraction of all remaining teeth in the jaw"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "Stage 3 disease often requires segmental or marginal resection to viable (bleeding) bone. Soft-tissue coverage is essential. Reconstruction timing and method depend on oncologic prognosis, defect size, and whether anti-resorptive therapy will continue. Prophylactic extraction of all teeth is not supported."
+      }
+    ]
+  },
+  {
+    "id": "OMFS-103",
+    "specialty": "Oral & Maxillofacial Surgery",
+    "difficulty": "Board Level",
+    "title": "Mandibular Angle Fracture with Third Molar in the Line of Fracture",
+    "short": "22M • Assault • Left angle fracture • #17 in fracture line",
+    "tags": ["omfs", "red"],
+    "isToday": false,
+    "patient": {
+      "age": 22,
+      "gender": "Male",
+      "medical_history": "Previously healthy, social ethanol use, no regular medications.",
+      "chief_complaint": "Punched in the jaw 6 hours ago; malocclusion and pain on the left side."
+    },
+    "clinical_findings": {
+      "exam": "Left facial swelling, step deformity at inferior border, V3 sensation intact, limited opening 25 mm, premature contact on left posterior, #17 partially erupted and mobile within the fracture line. No floor-of-mouth elevation.",
+      "imaging": "CT: non-displaced to minimally displaced left mandibular angle fracture through the socket of #17; second fracture at right parasymphysis (minimally displaced)."
+    },
+    "flags": ["angle fracture", "tooth in line of fracture", "ORIF timing", "infection risk"],
+    "guidelines": ["AAOMS Parameters of Care – Trauma", "Champy / AO principles", "Evidence on third-molar retention vs removal in angle fractures"],
+    "vignette": {
+      "demographics": "22-year-old male, assault victim, 6 hours post-injury.",
+      "chief": "Malocclusion and pain after blow to jaw.",
+      "clinical": "Angle + parasymphysis fractures, #17 in line of left angle fracture, intact neurosensory function.",
+      "endo": "N/A",
+      "radio": "CT confirms angle fracture involving #17 socket and contralateral parasymphysis fracture."
+    },
+    "questions": [
+      {
+        "q": "Regarding the third molar in the line of the angle fracture, what is the current evidence-based recommendation?",
+        "options": [
+          "Always extract the tooth at the time of ORIF to reduce infection risk",
+          "Always retain the tooth because extraction weakens the fracture reduction",
+          "Decision is individualized: retain if the tooth is restorable, not fractured, and does not interfere with reduction; extract if it is grossly carious, fractured, mobile and preventing reduction, or has advanced periodontitis",
+          "Delay all decisions until 6 weeks after ORIF"
+        ],
+        "correct": 2,
+        "specialist": "omfs",
+        "explanation": "Contemporary literature and AAOMS guidance support selective management. Teeth that aid reduction and are otherwise healthy may be retained and later restored or electively removed. Teeth that are a source of infection, prevent anatomic reduction, or are non-restorable are removed at the time of ORIF. Routine extraction of every tooth in the line of fracture is no longer mandated."
+      },
+      {
+        "q": "Preferred fixation strategy for a non-comminuted mandibular angle fracture treated via intraoral approach is:",
+        "options": [
+          "Maxillomandibular fixation alone for 6 weeks",
+          "Single superior-border miniplate along Champy lines (load-sharing) with or without a second plate if needed for stability",
+          "Reconstruction plate from the extraoral approach in every angle fracture",
+          "Lag-screw fixation only"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "For non-comminuted angle fractures, Champy’s ideal osteosynthesis lines allow a single superior-border miniplate to function in a load-sharing manner when the fracture is adequately reduced. A second plate may be added for additional stability. Reconstruction plates and extraoral approaches are reserved for comminuted, atrophic, or infected fractures. MMF alone has higher complication rates for angle fractures."
+      },
+      {
+        "q": "Red-team perioperative concern: What is the most important early postoperative instruction to reduce the risk of hardware failure or malunion in this young adult?",
+        "options": [
+          "Immediate unrestricted chewing",
+          "Strict non-chew / soft diet for the prescribed period, oral hygiene with irrigating devices, and early reporting of any change in occlusion or increased pain",
+          "Mandatory 6 weeks of tight MMF regardless of fixation",
+          "Prophylactic extraction of the contralateral third molar during the same anesthetic"
+        ],
+        "correct": 1,
+        "specialist": "red",
+        "explanation": "Even with rigid fixation, early excessive loading is a common cause of plate fracture or non-union at the angle. Clear dietary restriction, hygiene to prevent infection at the fracture site, and prompt evaluation of occlusal change are essential. Routine contralateral third-molar removal is not required for fracture management."
+      }
+    ]
+  },
+  {
+    "id": "OMFS-104",
+    "specialty": "Oral & Maxillofacial Surgery",
+    "difficulty": "Board Level",
+    "title": "Deep Space Odontogenic Infection — Threat to Airway",
+    "short": "34M • Uncontrolled T2DM • Rapidly progressive submandibular / sublingual swelling",
+    "tags": ["omfs", "red"],
+    "isToday": false,
+    "patient": {
+      "age": 34,
+      "gender": "Male",
+      "medical_history": "Type 2 diabetes (HbA1c 11.2%), no routine care, presents 4 days after onset of toothache #17.",
+      "chief_complaint": "Cannot swallow saliva, tongue feels pushed up, fever and chills."
+    },
+    "clinical_findings": {
+      "exam": "Toxic appearance, temperature 39.1 °C, floor-of-mouth elevated and firm, tongue elevated and protruded, bilateral submandibular swelling, trismus 15 mm, stridor when supine. #17 gross caries with vestibular fluctuance.",
+      "imaging": "CT with contrast: multi-loculated abscess involving left submandibular, sublingual, and lateral pharyngeal spaces; airway narrowed at oropharyngeal level."
+    },
+    "flags": ["Ludwig threat", "airway emergency", "uncontrolled diabetes", "urgent drainage"],
+    "guidelines": ["AAOMS Parameters – Infection", "Surgical airway algorithms", "IDSA / source-control principles"],
+    "vignette": {
+      "demographics": "34-year-old male with poorly controlled diabetes.",
+      "chief": "Inability to swallow, elevated tongue, systemic toxicity after neglected odontogenic infection.",
+      "clinical": "Elevated floor of mouth, trismus, stridor — impending airway compromise.",
+      "endo": "N/A",
+      "radio": "CT confirms multi-space abscess with airway narrowing."
+    },
+    "questions": [
+      {
+        "q": "Immediate priority in this patient’s management is:",
+        "options": [
+          "IV antibiotics alone and observation",
+          "Urgent airway assessment and securement (often fiber-optic or awake tracheostomy if difficult), followed by prompt incision and drainage and source removal under controlled conditions",
+          "Extraction of #17 in the clinic chair under local anesthesia",
+          "CT-guided aspiration only"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "Airway is the first priority in any deep-space infection with floor-of-mouth elevation and stridor. Once the airway is secure, definitive source control (incision, drainage of all involved spaces, and extraction of the offending tooth) is performed. Antibiotics are adjunctive, not definitive. Clinic extraction under local is dangerous and inadequate."
+      },
+      {
+        "q": "Which statement regarding antibiotic selection while awaiting culture is most appropriate?",
+        "options": [
+          "Oral penicillin VK is sufficient",
+          "Broad-spectrum IV coverage directed at oral streptococci, anaerobes, and possible Gram-negatives (e.g., ampicillin-sulbactam or piperacillin-tazobactam ± vancomycin if MRSA risk), adjusted once cultures return",
+          "Antifungal therapy must be started empirically",
+          "No antibiotics are needed if drainage is performed"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "Severe multi-space infections in a diabetic host require immediate broad IV coverage of the expected polymicrobial oral flora. Culture-directed de-escalation follows. Antifungals are not first-line. Drainage without antibiotics risks continued bacteremia in a compromised host."
+      },
+      {
+        "q": "Red-team systems issue: What is the most common management error that leads to airway catastrophe in similar presentations?",
+        "options": [
+          "Obtaining CT before any clinical airway evaluation",
+          "Underestimating the speed of progression and attempting a ‘quick look’ under inadequate anesthesia without a surgical airway backup plan",
+          "Giving steroids",
+          "Using too much local anesthetic"
+        ],
+        "correct": 1,
+        "specialist": "red",
+        "explanation": "Patients with evolving floor-of-mouth and lateral pharyngeal collections can progress from stable to complete obstruction rapidly. The classic error is proceeding to the OR or attempting intubation without a ready surgical airway plan and without recognizing that standard laryngoscopy may be impossible. Early involvement of anesthesia and OMFS with explicit airway strategy prevents fatalities."
+      }
+    ]
+  },
+  {
+    "id": "OMFS-105",
+    "specialty": "Oral & Maxillofacial Surgery",
+    "difficulty": "Board Level",
+    "title": "Suspicious Oral Lesion — Biopsy Decision & Staging Pathway",
+    "short": "61M • 30 pack-year smoker • Non-healing ulcer lateral tongue 8 weeks",
+    "tags": ["omfs", "red"],
+    "isToday": false,
+    "patient": {
+      "age": 61,
+      "gender": "Male",
+      "medical_history": "30 pack-year smoking history, social alcohol, hypertension on lisinopril, no prior oral cancer.",
+      "chief_complaint": "Sore on the side of my tongue that has not healed for two months; now it bleeds easily."
+    },
+    "clinical_findings": {
+      "exam": "2.2 cm indurated, non-homogeneous ulcer on left lateral tongue with surrounding erythroplakia; firm, mobile Level II lymph node 1.5 cm on the ipsilateral neck. No trismus, no tongue fixation.",
+      "imaging": "Not yet obtained."
+    },
+    "flags": ["high-risk lesion", "incisional biopsy", "neck node", "staging"],
+    "guidelines": ["NCCN Head & Neck Guidelines", "AAOMS / AAOM biopsy principles", "AJCC 8th edition staging"],
+    "vignette": {
+      "demographics": "61-year-old male smoker with a non-healing lateral tongue ulcer.",
+      "chief": "Persistent painful ulcer that bleeds.",
+      "clinical": "Indurated ulcer + ipsilateral suspicious lymphadenopathy.",
+      "endo": "N/A",
+      "radio": "Imaging pending definitive tissue diagnosis."
+    },
+    "questions": [
+      {
+        "q": "The most appropriate next diagnostic step is:",
+        "options": [
+          "Empiric antifungal therapy for 2 weeks and re-evaluate",
+          "Incisional biopsy of the most representative (indurated, non-necrotic) area of the lesion, preferably including the interface with adjacent mucosa, performed in a manner that does not compromise future resection margins",
+          "Excisional biopsy of the entire lesion in the office",
+          "Immediate hemiglossectomy based on clinical appearance"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "Any non-healing ulcer in a high-risk patient requires timely tissue diagnosis. Incisional biopsy of the most abnormal area is preferred so that the pathologist receives adequate tissue while the surgeon preserves the ability to perform a definitive oncologic resection later. Complete office excision of a lesion this size risks positive margins and complicates subsequent therapy. Empiric therapy only delays diagnosis."
+      },
+      {
+        "q": "Assuming squamous-cell carcinoma is confirmed, which staging investigation is required before definitive treatment planning?",
+        "options": [
+          "Panoramic radiograph only",
+          "Contrast-enhanced CT or MRI of the neck (and primary) plus evaluation for distant disease per NCCN (CT chest or PET/CT as indicated by stage and clinical risk)",
+          "No imaging is necessary if the lesion is <3 cm",
+          "Bone scan as the sole study"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "AJCC/NCCN staging for oral cavity SCC requires accurate assessment of primary extent, depth of invasion (pathologic), and regional nodes. Cross-sectional imaging of the neck is mandatory; chest imaging is added for pulmonary staging. PET/CT is often used for more advanced lesions. Under-staging by omitting imaging leads to inadequate treatment."
+      },
+      {
+        "q": "Red-team communication point: When discussing the biopsy result with the patient, which approach best supports informed decision-making?",
+        "options": [
+          "Tell the patient ‘it is probably nothing’ to avoid worry",
+          "Provide clear information about diagnosis, the need for multi-disciplinary evaluation (surgery, radiation oncology, medical oncology as indicated), expected treatment pathway, and the importance of smoking cessation, while allowing time for questions",
+          "Refer immediately without further discussion",
+          "Recommend alternative medicine first"
+        ],
+        "correct": 1,
+        "specialist": "red",
+        "explanation": "Delivering a cancer diagnosis requires honesty, empathy, and a structured explanation of next steps. Multi-disciplinary care is standard. Smoking cessation counseling is both therapeutic and prognostic. Minimizing the finding or abandoning the patient damages trust and outcomes."
+      }
+    ]
+  },
+  {
+    "id": "OMFS-106",
+    "specialty": "Oral & Maxillofacial Surgery",
+    "difficulty": "Board Level",
+    "title": "Severe Odontogenic Maxillary Sinusitis & Failed Implant — Combined Rhinologic / Surgical Approach",
+    "short": "55M • Chronic sinusitis after posterior maxillary implant • Oro-antral communication",
+    "tags": ["omfs", "pros", "red"],
+    "isToday": false,
+    "patient": {
+      "age": 55,
+      "gender": "Male",
+      "medical_history": "Hypertension, remote history of #3 extraction and immediate implant placement 4 years earlier; progressive left nasal congestion and foul drainage for 14 months.",
+      "chief_complaint": "Constant left nasal obstruction, post-nasal drip with foul taste, and intermittent swelling over the left cheek."
+    },
+    "clinical_findings": {
+      "exam": "Mild left mid-face tenderness, purulent drainage from left middle meatus, 4 mm oro-antral fistula at the #3 implant site with peri-implant mucosal inflammation. Implant has Class II mobility.",
+      "imaging": "CBCT: complete opacification of left maxillary sinus, osteitis of the sinus floor around the implant apex, which protrudes 4 mm into the sinus; patent osteomeatal complex on the right, obstructed on the left."
+    },
+    "flags": ["odontogenic sinusitis", "failed implant", "oro-antral fistula", "combined approach"],
+    "guidelines": ["AAOMS / ARS consensus on odontogenic sinusitis", "ITI implant complications", "FESS + oral surgical principles"],
+    "vignette": {
+      "demographics": "55-year-old male with chronic left sinus symptoms years after posterior maxillary implant.",
+      "chief": "Foul nasal drainage and cheek pressure.",
+      "clinical": "Mobile implant, oro-antral fistula, endoscopic evidence of sinusitis.",
+      "endo": "N/A",
+      "radio": "CBCT shows implant protrusion into a completely opacified left maxillary sinus."
+    },
+    "questions": [
+      {
+        "q": "The most evidence-based definitive management sequence is:",
+        "options": [
+          "Long-term oral antibiotics and observation",
+          "Removal of the failed implant, closure of the oro-antral communication, and functional endoscopic sinus surgery (FESS) to restore drainage — preferably coordinated between OMFS and otolaryngology",
+          "Only endoscopic sinus surgery leaving the implant in place",
+          "Immediate zygomatic implants to bypass the sinus"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "Odontogenic sinusitis caused by a failed implant will not resolve until the foreign body and source of contamination are removed and the sinus drainage pathway is restored. Combined oral surgical removal + fistula closure + FESS has the highest success rates in the current literature. Antibiotics alone or FESS alone leave the etiology untreated."
+      },
+      {
+        "q": "At the time of implant removal and fistula closure, which soft-tissue technique is most predictable for a 4–5 mm chronic oro-antral communication?",
+        "options": [
+          "Simple interrupted sutures only",
+          "Buccal advancement flap or buccal fat pad pedicled flap (alone or in combination), with tension-free closure and consideration of a membrane or graft if the bony defect is large",
+          "Primary intention without flap mobilization",
+          "Immediate soft-tissue grafting from the palate without addressing the sinus"
+        ],
+        "correct": 1,
+        "specialist": "omfs",
+        "explanation": "Chronic fistulas require tension-free, well-vascularized soft-tissue closure. Buccal advancement and buccal fat pad flaps are workhorse techniques with high success when the sinus pathology is simultaneously addressed. Simple sutures on residual inflamed tissue have high failure rates."
+      },
+      {
+        "q": "Red-team planning point: Before any reconstructive implant therapy is reconsidered in this quadrant, what must be confirmed?",
+        "options": [
+          "That the patient simply wants implants again",
+          "Complete resolution of sinus disease (clinical + radiographic), mature soft-tissue closure, and adequate residual bone or staged grafting potential; otherwise alternative prosthetic plans should be offered",
+          "Immediate placement of a longer implant",
+          "No further imaging is ever needed"
+        ],
+        "correct": 1,
+        "specialist": "red",
+        "explanation": "Re-implantation into a previously infected, surgically violated sinus without documented resolution of disease and soft-tissue stability invites recurrent sinusitis and implant failure. Patients must be given realistic alternatives (removable partial, fixed dental prosthesis from adjacent teeth, or zygomatic options only after sinus health is restored)."
+      }
+    ]
