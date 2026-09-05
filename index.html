@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- iOS Native Web App & Home Screen Meta Tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DentalSim">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Built-in Dental Tooth App Icon for iOS -->
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%2338bdf8'><rect width='100' height='100' rx='22' fill='%230f172a'/><text y='70' x='18' font-size='65'>🦷</text></svg>">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dental Grand Rounds — Daily Board Prep v3.3</title>
 <style>
+  /* iOS Touch & Safe Area Notch Handling */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  touch-action: manipulation;
+}
+body {
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
   :root {
     --bg: #0b1220;
     --surface: #141e2e;
